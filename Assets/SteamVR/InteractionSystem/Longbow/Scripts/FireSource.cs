@@ -14,6 +14,7 @@ namespace Valve.VR.InteractionSystem
 	{
 		public GameObject fireParticlePrefab;
 		public bool startActive;
+		public bool destroyAfter;
 		private GameObject fireObject;
 
 		public ParticleSystem customParticles;
@@ -54,6 +55,8 @@ namespace Valve.VR.InteractionSystem
 				{
 					Destroy( fireObject );
 				}
+				if ( destroyAfter )
+					Destroy( gameObject );
 			}
 		}
 
