@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5025999767666696857}
   - component: {fileID: 7087266551839643219}
   - component: {fileID: 8474247005676915402}
+  - component: {fileID: 7875866589774628321}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -98,3 +99,23 @@ CapsuleCollider:
   m_Height: 0.042679362
   m_Direction: 2
   m_Center: {x: 0.0000000033919227, y: 2.1826754e-11, z: 0.01}
+--- !u!114 &7875866589774628321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744859152780064646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86ab2e727cd09f43849955c5b35f490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireParticlePrefab: {fileID: 105996, guid: 9471d2206e57ca246a4bf982f3c29c8f, type: 3}
+  startActive: 0
+  customParticles: {fileID: 0}
+  isBurning: 0
+  burnTime: 10
+  ignitionDelay: 1
+  ignitionSound: {fileID: 0}
+  canSpreadFromThisSource: 1
