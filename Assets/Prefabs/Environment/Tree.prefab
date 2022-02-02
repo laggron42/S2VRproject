@@ -96,10 +96,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c509d5711dc2cc346be2763cd92383ca, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.006
-  m_Height: 0.042679362
+  m_Radius: 0.020645505
+  m_Height: 0.22360793
   m_Direction: 2
-  m_Center: {x: 0.0000000033919227, y: 2.1826754e-11, z: 0.01}
+  m_Center: {x: -0.000000016527643, y: 3.7565154e-16, z: 0.063694775}
 --- !u!114 &7875866589774628321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireParticlePrefab: {fileID: 105996, guid: 9471d2206e57ca246a4bf982f3c29c8f, type: 3}
   startActive: 0
+  destroyAfter: 1
   customParticles: {fileID: 8015287025286696873}
-  isBurning: 1
+  isBurning: 0
   burnTime: 10
   ignitionDelay: 1
   ignitionSound: {fileID: 0}
