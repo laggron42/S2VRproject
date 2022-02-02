@@ -69,7 +69,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void FireExposure()
+		public void FireExposure()
 		{
 			if ( fireObject == null )
 			{
@@ -104,6 +104,7 @@ namespace Valve.VR.InteractionSystem
 				if ( fireParticlePrefab != null )
 				{
 					fireObject = Instantiate( fireParticlePrefab, transform.position, transform.rotation ) as GameObject;
+					fireObject.transform.localScale = transform.localScale;
 					fireObject.transform.parent = transform;
 				}
 			}
