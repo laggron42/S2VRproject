@@ -17,6 +17,7 @@ namespace Valve.VR.InteractionSystem
 
         public LayerMask traceLayerMask;
 		public LayerMask floorFixupTraceLayerMask;
+		public bool enabled = true;
 		public float floorFixupMaximumTraceDistance = 1.0f;
 		public Material areaVisibleMaterial;
 		public Material areaLockedMaterial;
@@ -188,7 +189,7 @@ namespace Valve.VR.InteractionSystem
 
 			CheckForSpawnPoint();
 
-			Invoke( "ShowTeleportHint", 5.0f );
+			// Invoke( "ShowTeleportHint", 5.0f );
 		}
 
 
@@ -1033,6 +1034,11 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		public bool IsEligibleForTeleport( Hand hand )
 		{
+			if ( enabled == false )
+			{
+				return false;
+			}
+
 			if ( hand == null )
 			{
 				return false;
