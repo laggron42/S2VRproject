@@ -1821,6 +1821,7 @@ GameObject:
   - component: {fileID: 9545886}
   - component: {fileID: 11461100}
   - component: {fileID: 114000012997745504}
+  - component: {fileID: 7489095547037225330}
   m_Layer: 0
   m_Name: Longbow
   m_TagString: Untagged
@@ -2036,6 +2037,20 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &7489095547037225330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d4cc6cf300b3e4bb1411c4e041030c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportAllowed: 1
+  overrideHoverLock: 0
 --- !u!1 &173948
 GameObject:
   m_ObjectHideFlags: 0
