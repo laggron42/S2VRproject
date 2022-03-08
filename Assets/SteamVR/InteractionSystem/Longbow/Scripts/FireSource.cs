@@ -14,6 +14,7 @@ namespace Valve.VR.InteractionSystem
 	{
 		public GameObject fireParticlePrefab;
 		public bool startActive;
+		public bool destroyAfter;
 		private GameObject fireObject;
 
 		public ParticleSystem customParticles;
@@ -54,6 +55,8 @@ namespace Valve.VR.InteractionSystem
 				{
 					Destroy( fireObject );
 				}
+				if ( destroyAfter )
+					Destroy( gameObject );
 			}
 		}
 
@@ -63,17 +66,17 @@ namespace Valve.VR.InteractionSystem
 		{
 			if ( isBurning && canSpreadFromThisSource )
 			{
-				other.SendMessageUpwards( "FireExposure", SendMessageOptions.DontRequireReceiver );
+				other.SendMessageUpwards( "FireExposure", fireParticlePrefab , SendMessageOptions.DontRequireReceiver );
 			}
 		}
 
 
 		//-------------------------------------------------
-		private void FireExposure()
+		public void FireExposure(GameObject otherFireParticlePrefab = null)
 		{
-			if ( fireObject == null )
+			if ( fireObject == null || fireObject != otherFireParticlePrefab )
 			{
-				Invoke( "StartBurning", ignitionDelay );
+				StartCoroutine(StartBurningInTime(otherFireParticlePrefab));
 			}
 
 			if ( hand = GetComponentInParent<Hand>() )
@@ -82,10 +85,25 @@ namespace Valve.VR.InteractionSystem
 			}
 		}
 
+		private IEnumerator StartBurningInTime(GameObject fireParticlePrefab = null)
+		{
+			yield return new WaitForSeconds(ignitionDelay);
+			StartBurning(fireParticlePrefab);
+		}
+
 
 		//-------------------------------------------------
-		private void StartBurning()
+		private void StartBurning(GameObject otherFireParticlePrefab = null)
 		{
+			GameObject particlePrefab;
+			if (otherFireParticlePrefab != null)
+			{
+				particlePrefab = otherFireParticlePrefab;
+			}
+			else
+			{
+				particlePrefab = this.fireParticlePrefab;
+			}
 			isBurning = true;
 			ignitionTime = Time.time;
 
@@ -101,9 +119,10 @@ namespace Valve.VR.InteractionSystem
 			}
 			else
 			{
-				if ( fireParticlePrefab != null )
+				if ( particlePrefab != null )
 				{
-					fireObject = Instantiate( fireParticlePrefab, transform.position, transform.rotation ) as GameObject;
+					fireObject = Instantiate( particlePrefab, transform.position, transform.rotation ) as GameObject;
+					fireObject.transform.localScale = transform.localScale;
 					fireObject.transform.parent = transform;
 				}
 			}
