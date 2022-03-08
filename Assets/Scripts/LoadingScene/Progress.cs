@@ -10,8 +10,11 @@ public class Progress : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadScene(LoadSceneData.nextSceneToLoad));
-    }
+        if (LoadSceneData.nextSceneToLoad != null)
+            StartCoroutine(LoadScene(LoadSceneData.nextSceneToLoad));
+        else
+            Debug.LogWarning("No scene to load");
+        }
 
     IEnumerator LoadScene(string sceneName)
     {
