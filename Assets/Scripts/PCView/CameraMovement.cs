@@ -17,7 +17,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Display.displays[0].Activate();
+        Display.displays[1].Activate();
     }
 
     private string GetHour()
