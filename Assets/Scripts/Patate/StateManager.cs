@@ -14,6 +14,8 @@ public class StateManager : MonoBehaviour
     [Header("State")]
     public WeaponType weapon = WeaponType.None;
 
+    WeaponType current = WeaponType.None;
+
     [Header("Necessities")]
     public Transform hand;
 
@@ -27,6 +29,12 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (current != weapon)
+            ChangeWeapon(weapon);
     }
 
     public void StartAttack()
@@ -58,6 +66,8 @@ public class StateManager : MonoBehaviour
                 weaponInstance.transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 break;
         }
+
+        current = weapon;
     }
 
     public void Die()
