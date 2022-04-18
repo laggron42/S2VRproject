@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float speed = 20.0f;
-    public float zoomSpeed = 20.0f;
-    public float minZ = -40.0f;
-    public float maxZ = 40.0f;
-    public float minX = -40.0f;
-    public float maxX = 40.0f;
-    public float minY = 10.0f;
-    public float maxY = 50.0f;
+    private float speed = 20.0f;
+    private float zoomSpeed = 20.0f;
+    private float minZ = -40.0f;
+    private float maxZ = 40.0f;
+    private float minX = -40.0f;
+    private float maxX = 40.0f;
+    private float minY = 10.0f;
+    private float maxY = 50.0f;
     
 
     // Start is called before the first frame update
@@ -21,17 +21,6 @@ public class CameraMovement : MonoBehaviour
         Display.displays[1].Activate();
     }
 
-    private string GetHour()
-    {
-        int hour = System.DateTime.Now.Hour;
-        string hourString = hour.ToString();
-        if (hour < 10)
-        {
-            hourString = "0" + hourString;
-        }
-
-        return "Wave number" + hourString;
-    }
 
     // Update is called once per frame
     void Update()

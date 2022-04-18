@@ -51,7 +51,9 @@ public class Shop : MonoBehaviour
 
     void PanelOpener() {  
         if (shopPanel != null) {  
-            bool isActive = shopPanel.activeSelf;  
+            bool isActive = shopPanel.activeSelf;
+            // make the camera movement stop
+            
             shopPanel.SetActive(!isActive);
         }
 
