@@ -20,15 +20,18 @@ public class tower_transparent : MonoBehaviour
     void Update()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+        // move with the mouse
         if (Physics.Raycast(ray, out hit, 50.0f, ~5))
         {
             transform.position = hit.point + Vector3.up * 1.1f;
         }
 
+        // when you click then place the tower
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(tower, transform.position, Quaternion.identity);
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
