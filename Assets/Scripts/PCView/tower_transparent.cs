@@ -6,34 +6,29 @@ public class tower_transparent : MonoBehaviour
 {
     RaycastHit hit;
     Vector3 movePoint;
+    private Camera cam;
     public GameObject tower;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit, 50000.0f))
-        {
-            transform.position = hit.point;
-        }
+        cam  = GameObject.FindGameObjectWithTag("PcCam").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 8)))
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 50.0f, ~5))
         {
-            transform.position = hit.point;
+            transform.position = hit.point + Vector3.up * 1.1f;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(tower, transform.position, transform.rotation);
-            Destroy(gameObject);
+            Instantiate(tower, transform.position, Quaternion.identity);
+            //Destroy(gameObject);
         }
     }
 }
