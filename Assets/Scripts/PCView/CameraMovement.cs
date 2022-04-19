@@ -20,8 +20,6 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         Debug.Log("Screen.width: " + Screen.width);
-        grid = new TilesManager(10, 10, 10);
-
 
         Display.displays[0].Activate();
         Display.displays[1].Activate();

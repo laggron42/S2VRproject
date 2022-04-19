@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TilesManager
+public class TilesManager : MonoBehaviour
 {
     #region Singleton
     public static TilesManager instance;
@@ -13,22 +13,28 @@ public class TilesManager
     }
     #endregion
 
+    // Map visualisation texture
+    private Texture2D tex;
+    // If the map was updated (and the tex needs updating)
+    private bool texUpdated = false;
+    // If the visualisation tex is active
+    //(needs to be set to true each time we want to add a tower)
+    private bool active = false;
 
-    private int width;
-    private int height;
+    public int width = 10;
+    public int height = 10;
     private int[,] grid;
-    private float cellsize = 10f;
+    public float cellsize = 10f;
 
     //TOREMOVE
     private TextMesh[,] debugtextaray;
 
-    public TilesManager(int width, int height, float cellsize)
+    void Start()
     {
-        this.height = height;
-        this.width = width;
-        this.cellsize = cellsize;
-
         grid = new int[width, height];
+
+        GenerateTex();
+        Shader.SetGlobalTexture("_Tilemap", tex);
 
         /**
         FOR DEBUG ONLY
@@ -94,5 +100,28 @@ public class TilesManager
         int x, y;
         GetXY(worldPosition, out x, out y);
         SetValue(x, y, value);
+    }
+
+    /**
+     * Updates the visualisation texture if necessary
+     * Writes a green square if cell available, red othewise
+     */
+    public async void GenerateTex()
+    {
+        if (!texUpdated)
+            return;
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                Color c = (grid[x / (int)cellsize, y / (int)cellsize] == 0) ?
+                    Color.green : Color.red;
+                
+                tex.SetPixel(x, y, c);
+            }
+        }
+
+        tex.Apply();
     }
 }
