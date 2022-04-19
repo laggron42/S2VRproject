@@ -12,11 +12,17 @@ public class CameraMovement : MonoBehaviour
     private float maxX = 40.0f;
     private float minY = 10.0f;
     private float maxY = 50.0f;
+
+    private TilesManager grid;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Screen.width: " + Screen.width);
+        grid = new TilesManager(10, 10, 10);
+
+
         Display.displays[0].Activate();
         Display.displays[1].Activate();
     }
