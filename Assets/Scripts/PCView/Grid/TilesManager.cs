@@ -31,9 +31,9 @@ public class TilesManager : MonoBehaviour
     void Start()
     {
         grid = new int[width, height];
-        grid[16, 16] = 1;
+        grid[20, 20] = 1;
 
-        tex = new Texture2D(width, height, TextureFormat.ARGB32, false);
+        tex = new Texture2D(1000, 1000, TextureFormat.ARGB32, false);
         tex.filterMode = FilterMode.Point;
         GenerateTex();
         map.material.SetTexture("_Tilemap", tex);
@@ -110,11 +110,23 @@ public class TilesManager : MonoBehaviour
      */
     public void GenerateTex()
     {
-        for (int z = 0; z < height; z++)
-        {
-            for (int x = 0; x < width; x++)
+        int size = 600 / width;
+        for (int z = 0; z < 1000; z++)
+        { 
+            for (int x = 0; x < 1000; x++)
             {
-                Color c = (grid[x, z] == 0) ? Color.green : Color.red;
+                Color c;   
+                if (x <= 200 || z <= 200 || x >= 800 || z >= 800)
+                    c = Color.red;
+                else
+                {
+                    int wx = width - (x - 200) / size - 1;
+                    int hz = height - (z - 200) / size - 1;
+                    c = (grid[wx, hz] == 0) ? Color.green : Color.red;
+                    
+                    if ((x - 20) % size == 0 || (z - 20) % size == 0)
+                        c = Color.gray;          
+                }
 
                 tex.SetPixel(x, z, c);
             }
