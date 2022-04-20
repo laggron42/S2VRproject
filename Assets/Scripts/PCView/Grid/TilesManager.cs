@@ -31,7 +31,7 @@ public class TilesManager : MonoBehaviour
     void Start()
     {
         grid = new int[width, height];
-        grid[20, 20] = 1;
+        grid[26, 24] = 1;
 
         tex = new Texture2D(1000, 1000, TextureFormat.ARGB32, false);
         tex.filterMode = FilterMode.Point;
@@ -122,7 +122,7 @@ public class TilesManager : MonoBehaviour
                 {
                     int wx = width - (x - 200) / size - 1;
                     int hz = height - (z - 200) / size - 1;
-                    c = (grid[wx, hz] == 0) ? Color.green : Color.red;
+                    c = (grid[hz, wx] == 0) ? Color.green : Color.red;
                     
                     if ((x - 20) % size == 0 || (z - 20) % size == 0)
                         c = Color.gray;          
