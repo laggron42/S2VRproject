@@ -3346,8 +3346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc82b659872d0c4bb81135229674834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  map: {fileID: 1946928314}
+  width: 40
+  height: 40
   cellsize: 10
 --- !u!4 &664573755
 Transform:
@@ -11049,6 +11050,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 115969624259097761, guid: 40492842f06ee8d4ea42c028a30054e0, type: 3}
   m_PrefabInstance: {fileID: 1942482052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1946928314 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2882577582686592425, guid: e6564e3fe67705a409e6bbac0e2a6a90, type: 3}
+  m_PrefabInstance: {fileID: 4594072564363802229}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1956721344
 PrefabInstance:

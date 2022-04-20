@@ -13,10 +13,12 @@ public class TilesManager : MonoBehaviour
     }
     #endregion
 
+    // Map renderer
+    public MeshRenderer map;
     // Map visualisation texture
     private Texture2D tex;
     // If the map was updated (and the tex needs updating)
-    private bool texUpdated = false;
+    private bool texUpdated = true;
     // If the visualisation tex is active
     //(needs to be set to true each time we want to add a tower)
     private bool active = false;
@@ -32,16 +34,19 @@ public class TilesManager : MonoBehaviour
     void Start()
     {
         grid = new int[width, height];
+        grid[16, 16] = 1;
 
+        tex = new Texture2D(width, height, TextureFormat.ARGB32, false);
+        tex.filterMode = FilterMode.Point;
         GenerateTex();
-        Shader.SetGlobalTexture("_Tilemap", tex);
+        map.material.SetTexture("_Tilemap", tex);
 
         /**
         FOR DEBUG ONLY
         to visulize the differtents value
         **/
         debugtextaray = new TextMesh[width, height];
-        Debug.Log(width + " " + height);
+        //Debug.Log(width + " " + height);
         for(int x = 0; x < grid.GetLength(0); x++)
         {
             for (int y = 0; y < grid.GetLength(1); y++)
@@ -93,6 +98,7 @@ public class TilesManager : MonoBehaviour
         {
             grid[x, y] = value;
             debugtextaray[x, y].text = grid[x, y].ToString();
+            texUpdated = true;
         }
     }
     public void SetValue(Vector3 worldPosition, int value)
@@ -103,25 +109,44 @@ public class TilesManager : MonoBehaviour
     }
 
     /**
+     * Enable Visualisation map and updates it if necessary
+     */
+    public void EnterEditMode()
+    {
+        if (texUpdated)
+        {
+            GenerateTex();
+            map.material.SetTexture("_Tilemap", tex);
+        }
+
+        map.material.SetFloat("_TilemapActive", 1);
+    }
+
+    /**
+     * Disable Visualisation map
+     */
+    public void ExitEditMode()
+    {
+        map.material.SetFloat("_TilemapActive", 0);
+    }
+
+    /**
      * Updates the visualisation texture if necessary
      * Writes a green square if cell available, red othewise
      */
-    public async void GenerateTex()
+    public void GenerateTex()
     {
-        if (!texUpdated)
-            return;
-
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
-                Color c = (grid[x / (int)cellsize, y / (int)cellsize] == 0) ?
-                    Color.green : Color.red;
-                
+                Color c = (grid[x, y] == 0) ? Color.green : Color.red;
+
                 tex.SetPixel(x, y, c);
             }
         }
 
+        texUpdated = false;
         tex.Apply();
     }
 }
