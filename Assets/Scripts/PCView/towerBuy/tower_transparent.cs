@@ -24,9 +24,10 @@ public class tower_transparent : MonoBehaviour
         // move with the mouse
         if (Physics.Raycast(ray, out hit, 50.0f, ~5))
         {
-            TilesManager.instance.GetXY(hit.point, out int x, out int z);
+            TilesManager.instance.GetXZ(hit.point, out int x, out int z);
             Vector3 worldPos = new Vector3(x, 0, z);
-            transform.position = worldPos;
+            //if (TilesManager.instance.CanPlaceTower(x, z))
+                transform.position = worldPos;
         }
 
         // when you click then place the tower

@@ -23,8 +23,8 @@ public class TilesManager : MonoBehaviour
     //(needs to be set to true each time we want to add a tower)
     private bool active = false;
 
-    public int width = 10;
-    public int height = 10;
+    public int width = 40;
+    public int height = 40;
     private int[,] grid;
     public float cellsize = 1f;
 
@@ -46,7 +46,7 @@ public class TilesManager : MonoBehaviour
     {
         return new Vector3(x, 0, z) * cellsize;
     }
-    public void GetXY(Vector3 worldPosition, out int x, out int z)
+    public void GetXZ(Vector3 worldPosition, out int x, out int z)
     {
         x = Mathf.FloorToInt(worldPosition.x / cellsize);
         z = Mathf.FloorToInt(worldPosition.z / cellsize);
@@ -64,9 +64,23 @@ public class TilesManager : MonoBehaviour
     public void SetValue(Vector3 worldPosition, int value)
     {
         int x, z;
-        GetXY(worldPosition, out x, out z);
+        GetXZ(worldPosition, out x, out z);
         SetValue(x, z, value);
     }
+
+    public bool CanPlaceTower(int x, int z)
+    {
+        return grid[x, z] == 0;
+    }
+    
+    public bool CanPlaceTower(Vector3 worldPosition)
+    {
+        int x, z;
+        GetXZ(worldPosition, out x, out z);
+        return CanPlaceTower(x, z);
+    }
+
+    
 
     /**
      * Enable Visualisation map and updates it if necessary
