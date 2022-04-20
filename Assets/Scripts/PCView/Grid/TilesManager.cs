@@ -26,10 +26,7 @@ public class TilesManager : MonoBehaviour
     public int width = 10;
     public int height = 10;
     private int[,] grid;
-    public float cellsize = 10f;
-
-    //TOREMOVE
-    private TextMesh[,] debugtextaray;
+    public float cellsize = 1f;
 
     void Start()
     {
@@ -41,71 +38,34 @@ public class TilesManager : MonoBehaviour
         GenerateTex();
         map.material.SetTexture("_Tilemap", tex);
 
-        /**
-        FOR DEBUG ONLY
-        to visulize the differtents value
-        **/
-        debugtextaray = new TextMesh[width, height];
-        //Debug.Log(width + " " + height);
-        for(int x = 0; x < grid.GetLength(0); x++)
-        {
-            for (int y = 0; y < grid.GetLength(1); y++)
-            {
-                debugtextaray[x,y] = createText(grid[x, y].ToString(), Color.white, null, GetWorldPosition(x, y) + new Vector3(cellsize, cellsize) * .5f, 20,  TextAnchor.MiddleCenter);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
-            }
-        }
-        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
-
         SetValue(2, 1, 0);
     }
 
 
-    private Vector3 GetWorldPosition(int x, int y)
+    private Vector3 GetWorldPosition(int x, int z)
     {
-        return new Vector3(x, y) * cellsize;
+        return new Vector3(x, 0, z) * cellsize;
     }
-    private void GetXY(Vector3 worldPosition, out int x, out int y)
+    public void GetXY(Vector3 worldPosition, out int x, out int z)
     {
         x = Mathf.FloorToInt(worldPosition.x / cellsize);
-        y = Mathf.FloorToInt(worldPosition.y / cellsize);
+        z = Mathf.FloorToInt(worldPosition.z / cellsize);
     }
 
-    private TextMesh createText(string text, Color color, Transform parent = null,  Vector3 localPosi = default(Vector3),  int fontSize = 40, TextAnchor textAnchor = TextAnchor.UpperLeft, TextAlignment textAlignment = TextAlignment.Left, int sortingOrder = 0)
-    {
-        if (color == null)
-            color = Color.white;
-        GameObject go = new GameObject("Word_text", typeof(TextMesh));
-        go.transform.SetParent(parent, false);
-        go.transform.localPosition = localPosi;
-        TextMesh textMesh = go.GetComponent<TextMesh>();
-        textMesh.anchor = textAnchor;
-        textMesh.alignment = textAlignment;
-        textMesh.text = text;
-        textMesh.fontSize = fontSize;
-        textMesh.color = color;
-        textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
-        // mettre a l'horizontale
-        textMesh.transform.localEulerAngles = new Vector3(1, 0, 1);
-        return textMesh;
-    }
 
-    public void SetValue(int x, int y, int value)
+    public void SetValue(int x, int z, int value)
     {
-        if (x >= 0 && y >= 0 && x < width && y < height)
+        if (x >= 0 && z >= 0 && x < width && z < height)
         {
-            grid[x, y] = value;
-            debugtextaray[x, y].text = grid[x, y].ToString();
+            grid[x, z] = value;
             texUpdated = true;
         }
     }
     public void SetValue(Vector3 worldPosition, int value)
     {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        SetValue(x, y, value);
+        int x, z;
+        GetXY(worldPosition, out x, out z);
+        SetValue(x, z, value);
     }
 
     /**
@@ -136,13 +96,13 @@ public class TilesManager : MonoBehaviour
      */
     public void GenerateTex()
     {
-        for (int y = 0; y < height; y++)
+        for (int z = 0; z < height; z++)
         {
             for (int x = 0; x < width; x++)
             {
-                Color c = (grid[x, y] == 0) ? Color.green : Color.red;
+                Color c = (grid[x, z] == 0) ? Color.green : Color.red;
 
-                tex.SetPixel(x, y, c);
+                tex.SetPixel(x, z, c);
             }
         }
 
