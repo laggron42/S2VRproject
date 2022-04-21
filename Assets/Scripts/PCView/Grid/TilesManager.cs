@@ -22,9 +22,10 @@ public class TilesManager : MonoBehaviour
     // If the visualisation tex is active
     //(needs to be set to true each time we want to add a tower)
     private bool active = false;
-
     public int width = 40;
     public int height = 40;
+    private int size;
+
     private int[,] grid;
     public float cellsize = 1f;
 
@@ -32,6 +33,8 @@ public class TilesManager : MonoBehaviour
     {
         grid = new int[width, height];
         grid[26, 24] = 1;
+        size = 600 / width;
+
 
         tex = new Texture2D(1000, 1000, TextureFormat.ARGB32, false);
         tex.filterMode = FilterMode.Point;
@@ -42,14 +45,18 @@ public class TilesManager : MonoBehaviour
     }
 
 
-    private Vector3 GetWorldPosition(int x, int z)
+    public Vector3 GetWorldPosition(int x, int z)
     {
-        return new Vector3(x, 0, z) * cellsize;
+        return new Vector3(x, 0, z) * 3 + new Vector3(2, 0, 1);
     }
     public void GetXZ(Vector3 worldPosition, out int x, out int z)
     {
-        x = Mathf.FloorToInt(worldPosition.x / cellsize);
-        z = Mathf.FloorToInt(worldPosition.z / cellsize);
+        x = (int) worldPosition.x;
+        z = (int) worldPosition.z;
+        Debug.Log(x + " " + z);
+        x = (x - 1) / 3;
+        z = (z) / 3;
+        
     }
 
 
@@ -110,7 +117,7 @@ public class TilesManager : MonoBehaviour
      */
     public void GenerateTex()
     {
-        int size = 600 / width;
+        //int size = 600 / width;
         for (int z = 0; z < 1000; z++)
         { 
             for (int x = 0; x < 1000; x++)
