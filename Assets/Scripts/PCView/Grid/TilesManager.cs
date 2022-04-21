@@ -33,6 +33,7 @@ public class TilesManager : MonoBehaviour
     {
         grid = new int[width, height];
         grid[26, 24] = 1;
+        SetValue(10, 10, 1);
         size = 600 / width;
 
 
@@ -40,31 +41,27 @@ public class TilesManager : MonoBehaviour
         tex.filterMode = FilterMode.Point;
         GenerateTex();
         map.material.SetTexture("_Tilemap", tex);
-
-        SetValue(2, 1, 0);
     }
-
 
     public Vector3 GetWorldPosition(int x, int z)
     {
-        return new Vector3(x, 0, z) * 3 + new Vector3(2, 0, 1);
+        return new Vector3((x * 3) - 59, 0, - (z*3) + 59);
     }
+
     public void GetXZ(Vector3 worldPosition, out int x, out int z)
     {
-        x = (int) worldPosition.x;
-        z = (int) worldPosition.z;
-        Debug.Log(x + " " + z);
-        x = (x - 1) / 3;
+        x = (int) worldPosition.x + 60;
+        z = (int) -worldPosition.z + 60;
+        x = (x) / 3;
         z = (z) / 3;
         
     }
-
 
     public void SetValue(int x, int z, int value)
     {
         if (x >= 0 && z >= 0 && x < width && z < height)
         {
-            grid[x, z] = value;
+            grid[z, x] = value;
             texUpdated = true;
         }
     }
@@ -77,7 +74,7 @@ public class TilesManager : MonoBehaviour
 
     public bool CanPlaceTower(int x, int z)
     {
-        return grid[x, z] == 0;
+        return grid[z, x] == 0;
     }
     
     public bool CanPlaceTower(Vector3 worldPosition)
