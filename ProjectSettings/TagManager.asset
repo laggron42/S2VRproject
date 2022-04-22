@@ -8,7 +8,6 @@ TagManager:
   - projectile
   - PcCam
   - Shop
-  - torch
   layers:
   - Default
   - TransparentFX
