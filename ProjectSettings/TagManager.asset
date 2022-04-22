@@ -7,6 +7,8 @@ TagManager:
   - FxTemporaire
   - projectile
   - PcCam
+  - Shop
+  - torch
   layers:
   - Default
   - TransparentFX
