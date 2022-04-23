@@ -41,6 +41,8 @@ public class Shop : MonoBehaviour
     public void randomTorch()
     {
         int random = Random.Range(0, ListTorch.Count);
+        if (random < 0)
+            return;
         ligthTorch(ListTorch[random]);
         removeTorch(ListTorch[random]);
     }
