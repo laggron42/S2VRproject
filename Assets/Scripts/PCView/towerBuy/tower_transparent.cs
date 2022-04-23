@@ -35,8 +35,8 @@ public class tower_transparent : MonoBehaviour
         // when you click then place the tower
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(tower, transform.position, Quaternion.identity);
-            shop.addTower(tower);
+            GameObject t = Instantiate(tower, transform.position, Quaternion.identity);
+            shop.addTower(t);
             TilesManager.instance.SetValue(transform.position, 1);
             TilesManager.instance.EnterEditMode();
             Destroy(gameObject);
