@@ -8557,7 +8557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3873389455294117572, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Shop
       objectReference: {fileID: 0}
     - target: {fileID: 5303419776675975630, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_Pivot.x
