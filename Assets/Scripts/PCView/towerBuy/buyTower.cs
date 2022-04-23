@@ -10,5 +10,6 @@ public class buyTower : MonoBehaviour
     {
         // just make a tower_transparent spawn
         Instantiate(tower);
+        TilesManager.instance.EnterEditMode();
     }
 }
