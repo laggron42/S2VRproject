@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    
+    public Text addTorchText;
     public List<GameObject> ListTorch = new List<GameObject>();
 
 
@@ -40,13 +40,31 @@ public class Shop : MonoBehaviour
 
     public void randomTorch()
     {
-        int random = Random.Range(0, ListTorch.Count);
-        if (random < 0)
-            return;
-        ligthTorch(ListTorch[random]);
-        removeTorch(ListTorch[random]);
+        if (ListTorch.Count > 0)
+        {
+            int random = Random.Range(0, ListTorch.Count);
+            if (random < 0)
+                return;
+            ligthTorch(ListTorch[random]);
+            removeTorch(ListTorch[random]);
+        }
+        else
+        {
+            createError("No torch left");
+        }
     }
 
+    public void createError(string text)
+    {
+        // pour afficher une erreur de placement
+        addTorchText.text = text;
+        StartCoroutine(waitForError());
+    }
 
+    IEnumerator waitForError()
+    {
+        yield return new WaitForSeconds(2);
+        addTorchText.text = "Add a torch";
+    }
 
 }
