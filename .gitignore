@@ -74,5 +74,8 @@ crashlytics-build.properties
 # some vscode settings
 .vscode/launch.json
 
+# Get out Rider
+.idea
+
 # VR config
 unityProject.vrmanifest
