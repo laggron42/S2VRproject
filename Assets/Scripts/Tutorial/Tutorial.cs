@@ -7,7 +7,7 @@ using Valve.VR.InteractionSystem;
 
 public class Tutorial : MonoBehaviour
 {
-    public Text textCanvas;
+    public TextMesh textCanvas;
     public Teleport teleport;
     public ISteamVR_Action_Boolean menuAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("OpenMenu");
     public ISteamVR_Action_Boolean tpAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
