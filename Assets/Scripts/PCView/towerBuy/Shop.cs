@@ -61,12 +61,12 @@ public class Shop : MonoBehaviour
         // pour afficher une erreur de placement
         addTorchText.text = text;
         StartCoroutine(waitForError());
+        addTorchText.text = "Add a torch";
     }
 
     IEnumerator waitForError()
     {
         yield return new WaitForSeconds(2);
-        addTorchText.text = "Add a torch";
     }
 
 }

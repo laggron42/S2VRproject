@@ -21,7 +21,6 @@ public class TilesManager : MonoBehaviour
     private bool texUpdated = true;
     // If the visualisation tex is active
     //(needs to be set to true each time we want to add a tower)
-    private bool active = false;
     public int width = 40;
     public int height = 40;
     private int size;
