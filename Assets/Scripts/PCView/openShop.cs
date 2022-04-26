@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class openShop : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class openShop : MonoBehaviour
 
     public void shopOpener()
     {
+        Debug.Log("shopOpener");
         Animator shopAnim = shop.GetComponent<Animator>();
         if (shopAnim != null)
         {
