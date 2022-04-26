@@ -5380,6 +5380,7 @@ MonoBehaviour:
   noWeapons: 0
   sword: 0
   hammer: 0
+  waveRate: 20
 --- !u!4 &987634523
 Transform:
   m_ObjectHideFlags: 0

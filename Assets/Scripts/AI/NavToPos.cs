@@ -15,11 +15,13 @@ public class NavToPos : MonoBehaviour
     private GameObject getPosFrom;
     private GameObject save;
     private float timeLeft = 0.05f;
+    private int len;
     
 
     void Start()
     {
         targets = GameObject.FindGameObjectsWithTag("Tower");
+        len = targets.Length;
         agent.speed = speed;
         attRateCounter = attRate;
     }
@@ -30,6 +32,7 @@ public class NavToPos : MonoBehaviour
         if (timeLeft<=0)
         {
             targets = GameObject.FindGameObjectsWithTag("Tower");
+            len = targets.Length;
             timeLeft = 0.05f;
         }
         foreach (var el in targets)
@@ -42,11 +45,11 @@ public class NavToPos : MonoBehaviour
             }
         }
         getPosFrom = save;
-        if (distanceSave > attRange)
+        if (distanceSave > attRange || len==0)
         {
             gameObject.GetComponent<StateManager>().StopAttack();
             attRateCounter = attRate;
-            if (getPosFrom != null)
+            if (len != 0)
             {
                 agent.SetDestination(getPosFrom.transform.position);
             }

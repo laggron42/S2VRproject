@@ -17,6 +17,7 @@ public class SpawnPoint : MonoBehaviour
     public int noWeapons = 0;
     public int sword = 0;
     public int hammer = 0;
+    public float waveRate = 20f;
 
     private int len = 0;
     private int x = 1;
@@ -68,7 +69,7 @@ public class SpawnPoint : MonoBehaviour
 
             Round.text = "Round : " + x.ToString();
             x += 1;
-            timeLeft = 20;
+            timeLeft = waveRate;
         }
     }
 
