@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    public Camera cam;
     private float speed = 20.0f;
     private float zoomSpeed = 20.0f;
     private float minZ = -40.0f;
@@ -54,11 +55,11 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            y -= zoomSpeed * Time.deltaTime;
+            cam.orthographicSize = cam.orthographicSize < 11 ? 10 :cam.orthographicSize - zoomSpeed * Time.deltaTime;
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            y += zoomSpeed * Time.deltaTime;
+            cam.orthographicSize = cam.orthographicSize > 35 ? 36 :cam.orthographicSize + zoomSpeed * Time.deltaTime;
         }
 
         x = Mathf.Clamp(x, minX, maxX);
