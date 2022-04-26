@@ -11,7 +11,7 @@ public class buyTower : MonoBehaviour
     {
         openShop.shopOpener();
         // just make a tower_transparent spawn
-        Instantiate(tower);
+        Instantiate(tower, new Vector3(1.5f, 0, -1.5f), Quaternion.identity);
         TilesManager.instance.EnterEditMode();
     }
 }
