@@ -7,16 +7,26 @@ using Valve.VR.InteractionSystem;
 public class TowerSelector : MonoBehaviour
 {
     private Player player;
-    public SteamVR_Action_Boolean selectorAction;
-    public ISteamVR_Action_Boolean tpAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
-    public TeleportMarkerBase platformTp;
+    [Tooltip("The list of registered towers. Should automatically be filled on start based on Tower Parent Object.")]
     public SwitchTowerTeleportType[] towers;
+    
+    [Tooltip("The action for triggering tower switching.")]
+    public SteamVR_Action_Boolean selectorAction;
+    private ISteamVR_Action_Boolean tpAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
+    
+    [Tooltip("Platform where you land when selecting towers.")]
+    public TeleportMarkerBase platformTp;
+
+    [Tooltip("The object that contains all towers which will be collected.")]
+    public GameObject towerParentObject;
     private bool isSelecting = false;
 
     void OnEnable()
     {
         player = Player.instance;
         selectorAction.AddOnStateDownListener(OnButtonPress, SteamVR_Input_Sources.Any);
+
+        towers = towerParentObject.GetComponentsInChildren<SwitchTowerTeleportType>();
     }
 
     // Update is called once per frame
