@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class tower_transparent : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class tower_transparent : MonoBehaviour
         // move with the mouse
         if (Physics.Raycast(ray, out hit, 50.0f, ~5))
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+            
             TilesManager.instance.GetXZ(hit.point, out int x, out int z);
             if (TilesManager.instance.CanPlaceTower(x, z))
                 transform.position = TilesManager.instance.GetWorldPosition(x, hit.point.y ,z) 

@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class openShop : MonoBehaviour
 {
     public GameObject shop;
+    public bool isopen = false;
 
     public void shopOpener()
     {
         Animator shopAnim = shop.GetComponent<Animator>();
         if (shopAnim != null)
         {
-            bool isShopOpen = shopAnim.GetBool("isShopOpen");
-            shopAnim.SetBool("isShopOpen", !isShopOpen);
+            isopen = !isopen;
+            shopAnim.SetBool("isShopOpen", isopen);
         }
     }
 }
