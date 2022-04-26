@@ -29,7 +29,8 @@ public class tower_transparent : MonoBehaviour
         {
             TilesManager.instance.GetXZ(hit.point, out int x, out int z);
             if (TilesManager.instance.CanPlaceTower(x, z))
-                transform.position = TilesManager.instance.GetWorldPosition(x, hit.point.y ,z) + Vector3.up * 1.1f;
+                transform.position = TilesManager.instance.GetWorldPosition(x, hit.point.y ,z) 
+                    + new Vector3(1, 0, -1) * 0.6f + Vector3.up * 1.1f;
         }
 
         // when you click then place the tower
