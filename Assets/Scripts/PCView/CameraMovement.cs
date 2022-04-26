@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -14,15 +12,11 @@ public class CameraMovement : MonoBehaviour
     private float maxY = 50.0f;
 
     private TilesManager grid;
-    
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Screen.width: " + Screen.width);
-
-        Display.displays[0].Activate();
-        Display.displays[1].Activate();
     }
 
 
