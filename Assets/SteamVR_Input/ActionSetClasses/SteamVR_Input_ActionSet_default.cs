@@ -113,6 +113,14 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean ChangeTower
+        {
+            get
+            {
+                return SteamVR_Actions.default_ChangeTower;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

@@ -292,11 +292,11 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/openmenu"
+                     "output" : "/actions/default/in/changetower"
                   }
                },
                "mode" : "button",
-               "path" : "/user/hand/right/input/a"
+               "path" : "/user/hand/right/input/b"
             }
          ]
       },

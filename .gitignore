@@ -70,6 +70,12 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-unityProject.vrmanifest
+
+# some vscode settings
 .vscode/launch.json
-.vscode/tasks.json
+
+# Get out Rider
+.idea
+
+# VR config
+unityProject.vrmanifest
