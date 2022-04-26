@@ -200,6 +200,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9317a554da1ca1c4e81ef3237b4386fa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35341114
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9317a554da1ca1c4e81ef3237b4386fa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.35341114
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9317a554da1ca1c4e81ef3237b4386fa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.35341114
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9317a554da1ca1c4e81ef3237b4386fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -264,6 +276,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8516766349507438875, guid: 9317a554da1ca1c4e81ef3237b4386fa, type: 3}
   m_PrefabInstance: {fileID: 3467573657302294977}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &8455501361842627742
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385980536670936208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.45
+  m_Height: 4.17
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &-175436955874009111
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385980536670936208}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 1.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &-6627946513259536181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385980536670936208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f4f483d6ad0454c8332921460d93b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: -1311319615376290932}
+  speed: 2
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!195 &-1311319615376290932
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385980536670936208}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 2.15
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &174096692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578d9dae9d7031e46a026b3ada9f1aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 2
+  weapon: 1
   hand: {fileID: 4166135312883037988}
   hammerPrefab: {fileID: 919132149155446097, guid: 51e71dc7b03868a44b33dc923ba13119, type: 3}
   swordPrefab: {fileID: 919132149155446097, guid: ffcbd046d871c7d4cb2cdc1fc54706e3, type: 3}
@@ -294,17 +375,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popPrefab: {fileID: 186482, guid: 9d2dddaae5c812841accc43e4da1fccd, type: 3}
   collisionSound: {fileID: 7591270479823573143}
---- !u!136 &8455501361842627742
-CapsuleCollider:
+--- !u!114 &8812652463564315447
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4385980536670936208}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.45
-  m_Height: 4.17
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6521e52d21ee9f44922d4622a3a9439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  attackPower: 6
