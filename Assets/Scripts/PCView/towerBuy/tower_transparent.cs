@@ -43,7 +43,7 @@ public class tower_transparent : MonoBehaviour
             GameObject t = Instantiate(tower, transform.position, Quaternion.identity);
             shop.addTower(t);
             TilesManager.instance.SetValue(transform.position, 1);
-            TilesManager.instance.EnterEditMode();
+            TilesManager.instance.ExitEditMode();
             Destroy(gameObject);
         }
     }
