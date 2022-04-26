@@ -8,8 +8,8 @@ public class tower_transparent : MonoBehaviour
     Vector3 movePoint;
     private Camera cam;
     public GameObject tower;
-
     private Shop shop;
+
 
 
     // Start is called before the first frame update

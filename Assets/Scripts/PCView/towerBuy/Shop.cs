@@ -7,6 +7,7 @@ public class Shop : MonoBehaviour
 {
     public Text addTorchText;
     public List<GameObject> ListTorch = new List<GameObject>();
+    public openShop openShop;
 
 
     public void addTorch(Transform torch)
@@ -42,6 +43,7 @@ public class Shop : MonoBehaviour
     {
         if (ListTorch.Count > 0)
         {
+            openShop.shopOpener();
             int random = Random.Range(0, ListTorch.Count);
             if (random < 0)
                 return;
