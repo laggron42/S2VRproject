@@ -43,7 +43,7 @@ public class Shop : MonoBehaviour
     {
         if (ListTorch.Count > 0)
         {
-            openShop.shopOpener();
+            openShop.shopCloser();
             int random = Random.Range(0, ListTorch.Count);
             if (random < 0)
                 return;
