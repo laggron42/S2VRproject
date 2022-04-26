@@ -18,7 +18,7 @@ public class openShop : MonoBehaviour
     {
         if (shopAnim != null)
         {
-            isOpen = true;
+            isOpen = !isOpen;
             shopAnim.SetBool("isShopOpen", isOpen);
         }
     }
