@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 {
     public Text addTorchText;
     public List<GameObject> ListTorch = new List<GameObject>();
-    public openShop openShop;
+    public OpenShop openShop;
 
 
     public void addTorch(Transform torch)

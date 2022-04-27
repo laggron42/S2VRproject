@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class tower_transparent : MonoBehaviour
+public class TransparentTower : MonoBehaviour
 {
     RaycastHit hit;
     Vector3 movePoint;

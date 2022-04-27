@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class openShop : MonoBehaviour
+public class OpenShop : MonoBehaviour
 {
     public GameObject shop;
     public bool isOpen = false;
