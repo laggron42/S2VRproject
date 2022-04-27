@@ -10,7 +10,6 @@ public class NavToPos : MonoBehaviour
     public float attRate = 1f;
     public float attRange = 3f;
     public AudioSource footstep;
-    public AudioSource hurt;
     public AudioSource[] win;
 
     private float attRateCounter;
@@ -78,7 +77,6 @@ public class NavToPos : MonoBehaviour
         {
             burningTime = 3f;
             gameObject.GetComponent<StatsPotato>().health -= 1;
-            hurt.Play();
         }
 
         if (distanceSave > attRange || getPosFrom==null)

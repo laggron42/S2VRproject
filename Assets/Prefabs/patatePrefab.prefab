@@ -732,7 +732,6 @@ MonoBehaviour:
   attRate: 1
   attRange: 3
   footstep: {fileID: -56615862529650040}
-  hurt: {fileID: -805246415693506494}
   win:
   - {fileID: 703798664027794485}
   - {fileID: -1340676295078241586}
@@ -802,3 +801,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   attackPower: 6
+  hurt: {fileID: -805246415693506494}
