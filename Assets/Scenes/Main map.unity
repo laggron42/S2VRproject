@@ -8597,6 +8597,14 @@ PrefabInstance:
       propertyPath: ListTorch.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2101048193163453797, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_Text
+      value: Add a Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101048193163453797, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
     - target: {fileID: 2149623886934720598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
@@ -8605,10 +8613,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BuyTower, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3177881984030830818, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_Text
+      value: Add a Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177881984030830818, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
+    - target: {fileID: 3388058101718760205, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
     - target: {fileID: 3873389455294117572, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_TagString
       value: Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 4064000714513645853, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
+    - target: {fileID: 4509603133941292318, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158372160838769420, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
     - target: {fileID: 5178821847196676663, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -8757,6 +8789,50 @@ PrefabInstance:
       propertyPath: m_TargetDisplay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
+    - target: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447345, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.38312
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447345, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.38312
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447345, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.38312
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303419777141447345, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -153
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845007037691428128, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f3bb8688966d0d84ca6ce034dcd14728, type: 3}
     - target: {fileID: 6787216950866254399, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[0]
       value: 
@@ -8780,6 +8856,14 @@ PrefabInstance:
     - target: {fileID: 6875108601909725316, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254919335971967218, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736120471711043187, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 631
       objectReference: {fileID: 0}
     - target: {fileID: 8482980642765312338, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: transparentTower
