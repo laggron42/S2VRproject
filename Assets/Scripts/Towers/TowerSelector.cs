@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
@@ -7,8 +8,6 @@ using Valve.VR.InteractionSystem;
 public class TowerSelector : MonoBehaviour
 {
     private Player player;
-    [Tooltip("The list of registered towers. Should automatically be filled on start based on Tower Parent Object.")]
-    public SwitchTowerTeleportType[] towers;
     
     [Tooltip("The action for triggering tower switching.")]
     public SteamVR_Action_Boolean selectorAction;
@@ -16,9 +15,13 @@ public class TowerSelector : MonoBehaviour
     
     [Tooltip("Platform where you land when selecting towers.")]
     public TeleportMarkerBase platformTp;
+    [Tooltip("The tower that will be instanciated")]
+    public GameObject towerPrefab;
 
     [Tooltip("The object that contains all towers which will be collected.")]
     public GameObject towerParentObject;
+    [Tooltip("The list of registered towers. Should automatically be filled on start based on Tower Parent Object.")]
+    public List<SwitchTowerTeleportType> towers;
     private bool isSelecting = false;
 
     void OnEnable()
@@ -26,7 +29,7 @@ public class TowerSelector : MonoBehaviour
         player = Player.instance;
         selectorAction.AddOnStateDownListener(OnButtonPress, SteamVR_Input_Sources.Any);
 
-        towers = towerParentObject.GetComponentsInChildren<SwitchTowerTeleportType>();
+        towers = towerParentObject.GetComponentsInChildren<SwitchTowerTeleportType>().ToList();
     }
 
     // Update is called once per frame
@@ -72,5 +75,11 @@ public class TowerSelector : MonoBehaviour
         {
             tp.SetToAreaMode();
         }
+    }
+
+    public void AddTower(Vector3 position)
+    {
+        GameObject tower = Instantiate(towerPrefab, position, Quaternion.identity, towerParentObject.transform);
+        towers.Add(tower.GetComponent<SwitchTowerTeleportType>());
     }
 }

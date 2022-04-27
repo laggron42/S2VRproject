@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    public Camera cam;
     private float speed = 20.0f;
     private float zoomSpeed = 20.0f;
     private float minZ = -40.0f;
@@ -14,15 +13,11 @@ public class CameraMovement : MonoBehaviour
     private float maxY = 50.0f;
 
     private TilesManager grid;
-    
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Screen.width: " + Screen.width);
-
-        Display.displays[0].Activate();
-        Display.displays[1].Activate();
     }
 
 
@@ -60,11 +55,11 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            y -= zoomSpeed * Time.deltaTime;
+            cam.orthographicSize = cam.orthographicSize < 11 ? 10 :cam.orthographicSize - zoomSpeed * Time.deltaTime;
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            y += zoomSpeed * Time.deltaTime;
+            cam.orthographicSize = cam.orthographicSize > 35 ? 36 :cam.orthographicSize + zoomSpeed * Time.deltaTime;
         }
 
         x = Mathf.Clamp(x, minX, maxX);

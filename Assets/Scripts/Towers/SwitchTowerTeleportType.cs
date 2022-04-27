@@ -7,6 +7,7 @@ public class SwitchTowerTeleportType : MonoBehaviour
 {
     public GameObject teleportArea;
     public GameObject teleportPoint;
+    public TorchList torches; // Ugly but saves performances a lot
 
     public void SetToAreaMode()
     {
