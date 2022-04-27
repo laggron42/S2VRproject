@@ -59,11 +59,13 @@ public class StateManager : MonoBehaviour
                 weaponInstance = Instantiate(hammerPrefab, hand, true);
                 weaponInstance.transform.localPosition = new Vector3(0, 0.003f, 0);
                 weaponInstance.transform.localRotation = Quaternion.Euler(-96, -90, 90);
+                weaponInstance.transform.localScale = new Vector3(1,1,1);
                 break;
             case WeaponType.Sword:
                 weaponInstance = Instantiate(swordPrefab, hand, true);
                 weaponInstance.transform.localPosition = new Vector3(0, 0.002f, 0);
                 weaponInstance.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+                weaponInstance.transform.localScale = new Vector3(1,1,1);
                 break;
         }
 
