@@ -9720,6 +9720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PC_canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5303419776675975635, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6787216950866254399, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[0]
       value: 
@@ -12426,6 +12430,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333678263}
     m_Modifications:
+    - target: {fileID: 5369122663186998631, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bbbd01c5b7a6b4bb5a1316f21fc1ff, type: 2}
     - target: {fileID: 5369122664445305994, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
       propertyPath: m_RootOrder
       value: 0
