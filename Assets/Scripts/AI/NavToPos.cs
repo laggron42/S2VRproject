@@ -9,6 +9,9 @@ public class NavToPos : MonoBehaviour
     public float speed;
     public float attRate = 1f;
     public float attRange = 3f;
+    public AudioSource footstep;
+    public AudioSource hurt;
+    public AudioSource[] win;
 
     private float attRateCounter;
     private float distanceSave;
@@ -18,7 +21,9 @@ public class NavToPos : MonoBehaviour
     private int len;
     private bool isBurning = false;
     private float burningTime = 3f;
-    
+    private float GLORY;
+    private float stepRate = 0.25f;
+
 
     void Start()
     {
@@ -26,6 +31,7 @@ public class NavToPos : MonoBehaviour
         len = targets.Length;
         agent.speed = speed;
         attRateCounter = attRate;
+        GLORY = Random.Range(0f, 10f);
     }
 
     /*void OnCollisionEnter(Collision collision)
@@ -42,6 +48,7 @@ public class NavToPos : MonoBehaviour
     void Update()
     {
         distanceSave = float.MaxValue;
+        getPosFrom = null;
         timeLeft -= Time.deltaTime;
         if (gameObject.GetComponent<Valve.VR.InteractionSystem.FireSource>().isBurning)
         {
@@ -55,11 +62,14 @@ public class NavToPos : MonoBehaviour
         }
         foreach (var el in targets)
         {
-            float distance = Vector3.Distance(transform.position, el.transform.position);
-            if (distance < distanceSave)
+            if (el != null)
             {
-                distanceSave = distance;
-                save = el;
+                float distance = Vector3.Distance(transform.position, el.transform.position);
+                if (distance < distanceSave)
+                {
+                    distanceSave = distance;
+                    save = el;
+                }
             }
         }
         getPosFrom = save;
@@ -68,20 +78,38 @@ public class NavToPos : MonoBehaviour
         {
             burningTime = 3f;
             gameObject.GetComponent<StatsPotato>().health -= 1;
+            hurt.Play();
         }
 
-        if (distanceSave > attRange || len==0)
+        if (distanceSave > attRange || getPosFrom==null)
         {
             gameObject.GetComponent<StateManager>().StopAttack();
             attRateCounter = attRate;
-            if (len != 0)
+            if (getPosFrom != null)
             {
+                stepRate -= Time.deltaTime;
+                if (stepRate<=0)
+                {
+                    footstep.Play();
+                    stepRate = 0.25f;
+                }
                 agent.SetDestination(getPosFrom.transform.position);
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+                GLORY -= Time.deltaTime;
+                if (GLORY <= 0)
+                {
+                    GLORY = Random.Range(5f,15f);
+                    win[Random.Range(0, 2)].Play();
+                }
             }
         }
         else
         {
             gameObject.GetComponent<StateManager>().StartAttack();
+            agent.SetDestination(transform.position);
             attRateCounter -= Time.deltaTime;
             if (attRateCounter<=0)
             {

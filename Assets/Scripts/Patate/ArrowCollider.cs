@@ -14,5 +14,6 @@ public class ArrowCollider : MonoBehaviour
         particleObject.GetComponent<ParticleSystem>().Play();
         Destroy(particleObject, 2f);
         gameObject.GetComponent<StatsPotato>().health -= 1;
+        gameObject.GetComponent<NavToPos>().hurt.Play();
     }
 }

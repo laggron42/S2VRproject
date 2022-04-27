@@ -12,6 +12,8 @@ public class SpawnPoint : MonoBehaviour
 
     public List<GameObject> spawnPoints = new List<GameObject>();
 
+    public AudioSource horn;
+
     [Header("First Wave Enemies numbers")]
 
     public int noWeapons = 0;
@@ -35,7 +37,7 @@ public class SpawnPoint : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
-
+            horn.Play();
             if (x > 19) noWeapons += 2;
             else noWeapons += 1;
             if (x % 3 == 0) sword += 1;
