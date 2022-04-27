@@ -16,6 +16,8 @@ public class NavToPos : MonoBehaviour
     private GameObject save;
     private float timeLeft = 0.05f;
     private int len;
+    private bool isBurning = false;
+    private float burningTime = 3f;
     
 
     void Start()
@@ -25,10 +27,26 @@ public class NavToPos : MonoBehaviour
         agent.speed = speed;
         attRateCounter = attRate;
     }
+
+    /*void OnCollisionEnter(Collision collision)
+    {
+        GameObject projectile = collision.collider.gameObject;
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        float rbSpeed = rb.velocity.sqrMagnitude;
+        if ( projectile.CompareTag("projectile") && rbSpeed > 0.1f)
+        {
+            gameObject.GetComponent<StatsPotato>().health -= 1;
+        }
+    }*/
+
     void Update()
     {
         distanceSave = float.MaxValue;
         timeLeft -= Time.deltaTime;
+        if (gameObject.GetComponent<Valve.VR.InteractionSystem.FireSource>().isBurning)
+        {
+            burningTime -= Time.deltaTime;
+        }
         if (timeLeft<=0)
         {
             targets = GameObject.FindGameObjectsWithTag("Tower");
@@ -45,6 +63,13 @@ public class NavToPos : MonoBehaviour
             }
         }
         getPosFrom = save;
+
+        if (burningTime<=0)
+        {
+            burningTime = 3f;
+            gameObject.GetComponent<StatsPotato>().health -= 1;
+        }
+
         if (distanceSave > attRange || len==0)
         {
             gameObject.GetComponent<StateManager>().StopAttack();
