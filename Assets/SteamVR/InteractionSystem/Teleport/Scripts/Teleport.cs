@@ -74,7 +74,7 @@ namespace Valve.VR.InteractionSystem
 
 		private bool visible = false;
 
-		private TeleportMarkerBase[] teleportMarkers;
+		public TeleportMarkerBase[] teleportMarkers;
 		private TeleportMarkerBase pointedAtTeleportMarker;
 		private TeleportMarkerBase teleportingToMarker;
 		private Vector3 pointedAtPosition;
@@ -172,8 +172,8 @@ namespace Valve.VR.InteractionSystem
 
 		//-------------------------------------------------
 		void Start()
-        {
-            teleportMarkers = GameObject.FindObjectsOfType<TeleportMarkerBase>();
+		{
+			teleportMarkers = new TeleportMarkerBase[] {}; //GameObject.FindObjectsOfType<TeleportMarkerBase>();
 
 			HidePointer();
 
