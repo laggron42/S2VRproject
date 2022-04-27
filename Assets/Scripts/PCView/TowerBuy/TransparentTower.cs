@@ -8,8 +8,8 @@ public class TransparentTower : MonoBehaviour
     RaycastHit hit;
     Vector3 movePoint;
     private Camera cam;
-    public GameObject tower;
     private Shop shop;
+    private TowerSelector towerSelector;
 
 
 
@@ -18,6 +18,7 @@ public class TransparentTower : MonoBehaviour
     {
         cam  = GameObject.FindGameObjectWithTag("PcCam").GetComponent<Camera>();
         shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
+        towerSelector = FindObjectOfType<TowerSelector>();
     }
 
     // Update is called once per frame
@@ -40,8 +41,7 @@ public class TransparentTower : MonoBehaviour
         // when you click then place the tower
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject t = Instantiate(tower, transform.position, Quaternion.identity);
-            shop.addTower(t);
+            towerSelector.AddTower(transform.position);
             TilesManager.instance.SetValue(transform.position, 1);
             TilesManager.instance.ExitEditMode();
             Destroy(gameObject);

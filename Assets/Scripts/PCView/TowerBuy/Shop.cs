@@ -1,59 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     public Text addTorchText;
-    public List<GameObject> ListTorch = new List<GameObject>();
-    public OpenShop openShop;
+    public TowerSelector towerSelector;
 
-
-    public void addTorch(Transform torch)
+    void Start()
     {
-        ListTorch.Add(torch.gameObject);
-        unLigthTorch(torch.gameObject);
+
     }
 
-    public void addTower(GameObject tower)
+    public void LigthTorch(int index)
     {
-        // recuperer les torches et les mettre dans la liste
-        addTorch(tower.transform.GetChild(0).GetChild(0));
-        addTorch(tower.transform.GetChild(0).GetChild(1));
-        addTorch(tower.transform.GetChild(0).GetChild(2));
-    }
-
-    public void removeTorch(GameObject torch)
-    {
-        ListTorch.Remove(torch);
-    }
-
-    public void ligthTorch(GameObject torch)
-    {
-        torch.SetActive(true);
-    }
-
-    public void unLigthTorch(GameObject torch)
-    {
-        torch.SetActive(false);
-    }
-
-    public void randomTorch()
-    {
-        if (ListTorch.Count > 0)
+        foreach (SwitchTowerTeleportType tower in towerSelector.towers)
         {
-            openShop.shopCloser();
-            int random = Random.Range(0, ListTorch.Count);
-            if (random < 0)
-                return;
-            ligthTorch(ListTorch[random]);
-            removeTorch(ListTorch[random]);
+            tower.torches.torches[index].gameObject.SetActive(true);
         }
-        else
+    }
+
+    public void UnLigthTorch(int index)
+    {
+        foreach (SwitchTowerTeleportType tower in towerSelector.towers)
         {
-            createError("No torch left");
+            tower.torches.GetComponentsInChildren<Transform>()[index].gameObject.SetActive(true);
         }
+    }
+
+    public void RandomTorch()
+    {
+        if (towerSelector.towers.Count < 0)
+        {
+            createError("No towers");
+            return;
+        }
+        List<GameObject> torches = towerSelector.towers[0].torches.torches;
+        for (int i = 0; i < torches.Count; i++)
+        {
+            if (torches[i].activeInHierarchy)
+                continue;
+            LigthTorch(i);
+            break;
+        }
+        createError("No torch left");
     }
 
     public void createError(string text)

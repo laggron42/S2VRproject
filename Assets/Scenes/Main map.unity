@@ -877,11 +877,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 115969624259097761, guid: 40492842f06ee8d4ea42c028a30054e0, type: 3}
   m_PrefabInstance: {fileID: 103361605}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &107248543 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8892377164109152317, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
-  m_PrefabInstance: {fileID: 5369122664724478490}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &124664925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,12 +1054,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd4281d301e0b541b5b63fc773e2847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towers: []
   selectorAction:
     actionPath: /actions/default/in/ChangeTower
     needsReinit: 0
   platformTp: {fileID: 447395021}
+  towerPrefab: {fileID: 5369122664445306005, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
   towerParentObject: {fileID: 1333678262}
+  towers: []
 --- !u!4 &130151581
 Transform:
   m_ObjectHideFlags: 0
@@ -2549,11 +2545,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4041601728843997284, guid: 558a31ba8d37a2942b20befef01e5b2e, type: 3}
   m_PrefabInstance: {fileID: 569656173}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &571990515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8892377163290911920, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
-  m_PrefabInstance: {fileID: 5369122664724478490}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &586476710
 PrefabInstance:
@@ -8583,17 +8574,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 283990927815358146, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: torchList
+      value: 
+      objectReference: {fileID: 5027210438374826146, guid: f8c1e71695ad9334f8d3007626edb8ea, type: 3}
+    - target: {fileID: 283990927815358146, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: torchesPrefab
+      value: 
+      objectReference: {fileID: 4868663234581927363, guid: f8c1e71695ad9334f8d3007626edb8ea, type: 3}
+    - target: {fileID: 283990927815358146, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: towerSelector
+      value: 
+      objectReference: {fileID: 130151580}
+    - target: {fileID: 283990927815358146, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[0]
       value: 
-      objectReference: {fileID: 1785366413}
+      objectReference: {fileID: 0}
     - target: {fileID: 283990927815358146, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[1]
       value: 
-      objectReference: {fileID: 107248543}
+      objectReference: {fileID: 0}
     - target: {fileID: 283990927815358146, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[2]
       value: 
-      objectReference: {fileID: 571990515}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149623886934720598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149623886934720598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuyTower, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3873389455294117572, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_TagString
       value: Shop
@@ -8612,11 +8623,11 @@ PrefabInstance:
       objectReference: {fileID: 850095715}
     - target: {fileID: 5178821847196676663, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5178821847196676663, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: randomTorch
+      value: RandomTorch
       objectReference: {fileID: 0}
     - target: {fileID: 5178821847196676663, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -8749,15 +8760,15 @@ PrefabInstance:
     - target: {fileID: 6787216950866254399, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[0]
       value: 
-      objectReference: {fileID: 1785366413}
+      objectReference: {fileID: 0}
     - target: {fileID: 6787216950866254399, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[1]
       value: 
-      objectReference: {fileID: 107248543}
+      objectReference: {fileID: 0}
     - target: {fileID: 6787216950866254399, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: ListTorch.Array.data[2]
       value: 
-      objectReference: {fileID: 571990515}
+      objectReference: {fileID: 0}
     - target: {fileID: 6875108601909725316, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8769,6 +8780,18 @@ PrefabInstance:
     - target: {fileID: 6875108601909725316, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482980642765312338, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: transparentTower
+      value: 
+      objectReference: {fileID: 5369122664445306005, guid: b589d9299f8651f42a55c8ae22f3bda7, type: 3}
+    - target: {fileID: 8919696347007945803, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146003205104987601, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
@@ -8919,11 +8942,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8219117413635403068, guid: 9e1d55b65b90524408cc36dc7e185bc2, type: 3}
   m_PrefabInstance: {fileID: 1762581859}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1785366413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8892377164340155676, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
-  m_PrefabInstance: {fileID: 5369122664724478490}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1801013723
 PrefabInstance:
@@ -9440,6 +9458,10 @@ PrefabInstance:
     - target: {fileID: 5369122664445306005, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
       propertyPath: m_Name
       value: Tower (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892377164340155676, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
@@ -11159,6 +11181,10 @@ PrefabInstance:
     - target: {fileID: 5369122664445306005, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369122664445306005, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5487710254688102900, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
       propertyPath: m_IsActive

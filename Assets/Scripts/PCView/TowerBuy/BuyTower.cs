@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuyTower : MonoBehaviour
 {
-    public GameObject tower;
+    public GameObject transparentTower;
     public OpenShop openShop;
 
     public void spawnTower()
@@ -14,7 +14,7 @@ public class BuyTower : MonoBehaviour
         
         openShop.shopCloser();
         // just make a tower_transparent spawn
-        Instantiate(tower, new Vector3(1.5f, 0, -1.5f), Quaternion.identity);
+        GameObject t = Instantiate(transparentTower, new Vector3(1.5f, 0, -1.5f), Quaternion.identity);
         TilesManager.instance.EnterEditMode();
     }
 }
