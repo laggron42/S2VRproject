@@ -13,6 +13,6 @@ public class ArrowCollider : MonoBehaviour
         GameObject particleObject = Instantiate(popPrefab, transform.position, transform.rotation) as GameObject;
         particleObject.GetComponent<ParticleSystem>().Play();
         Destroy(particleObject, 2f);
-        Destroy(gameObject);
+        gameObject.GetComponent<StatsPotato>().health -= 1;
     }
 }
