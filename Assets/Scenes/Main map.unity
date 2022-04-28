@@ -8597,6 +8597,14 @@ PrefabInstance:
       propertyPath: ListTorch.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1776382863162685191, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776382863162685191, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3476
+      objectReference: {fileID: 0}
     - target: {fileID: 2101048193163453797, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_Text
       value: Add a Torch
@@ -8636,6 +8644,14 @@ PrefabInstance:
     - target: {fileID: 4509603133941292318, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051588834898002154, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051588834898002154, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 398
       objectReference: {fileID: 0}
     - target: {fileID: 5158372160838769420, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_FontData.m_Font
