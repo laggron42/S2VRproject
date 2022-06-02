@@ -82,4 +82,6 @@ public class TowerSelector : MonoBehaviour
         GameObject tower = Instantiate(towerPrefab, position, Quaternion.identity, towerParentObject.transform);
         towers.Add(tower.GetComponent<SwitchTowerTeleportType>());
     }
+
+    
 }

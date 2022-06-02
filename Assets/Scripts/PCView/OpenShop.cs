@@ -8,6 +8,8 @@ public class OpenShop : MonoBehaviour
     public GameObject shop;
     public bool isOpen = false;
 
+    public GameObject TowerPanel;
+    public GameObject UpgradePanel;
     private Animator shopAnim;
 
     private void Start() {
@@ -30,5 +32,11 @@ public class OpenShop : MonoBehaviour
             isOpen = false;
             shopAnim.SetBool("isShopOpen", isOpen);
         }
+    }
+
+    public void menu(bool isTower)
+    {
+        TowerPanel.SetActive(isTower);
+        UpgradePanel.SetActive(!isTower);
     }
 }
