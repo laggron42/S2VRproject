@@ -8,7 +8,6 @@ public class TransparentTower : MonoBehaviour
     RaycastHit hit;
     Vector3 movePoint;
     private Camera cam;
-    private Shop shop;
     private TowerSelector towerSelector;
 
 
@@ -17,7 +16,6 @@ public class TransparentTower : MonoBehaviour
     void Start()
     {
         cam  = GameObject.FindGameObjectWithTag("PcCam").GetComponent<Camera>();
-        shop = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         towerSelector = FindObjectOfType<TowerSelector>();
     }
 

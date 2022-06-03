@@ -45,33 +45,24 @@ public class UpgradeTower : MonoBehaviour
     }
     public void prevbutton()
     {
-        index = index-- < 0 ? index : Towers.Count - 1;
+        index = index == 0 ? Towers.Count - 1 : --index;
         UpdateScreen();
     }
 
 
     public void AddTorch()
     {
-        List<Transform> childrens = new List<Transform> (Towers[index].gameObject.GetComponentsInChildren<Transform>(false));
+        TorchList torchLists = (Towers[index].gameObject.GetComponentInChildren<TorchList>(false));
 
-        for (int i = childrens.Count - 1; i >= 0; i--)
+        for (int i = 0; i < torchLists.torches.Count; i++)
         {
-            Debug.Log(i);
-            if (childrens[i].CompareTag("torch") == false)
-                childrens.RemoveAt(i);
-        }
-
-        for (int i = 0; i < childrens.Count; i++)
-        {
-            Debug.Log(i);
-            if (childrens[i].gameObject.activeInHierarchy)
+            if (torchLists.torches[i].gameObject.activeInHierarchy)
                 continue;
-            childrens[i].gameObject.SetActive(false);
+
+            torchLists.torches[i].gameObject.SetActive(true);
             break;
         }
         createError("No torch left");
-
-
     }
 
     public void createError(string text)
