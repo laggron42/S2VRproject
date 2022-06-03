@@ -1158,13 +1158,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &171405077 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2738339330253202373, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5475237522031837598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
   m_PrefabInstance: {fileID: 1398558203}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8579a0fbc4129d7488d368dc5297450c, type: 3}
+  m_Script: {fileID: 11500000, guid: 62e2be8dcafdaf740bfd760aa5ad026b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &183728333
@@ -7353,7 +7353,7 @@ PrefabInstance:
     - target: {fileID: 5395002016268729831, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 171405077}
+      objectReference: {fileID: 0}
     - target: {fileID: 5395002016268729831, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -7370,6 +7370,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5475237522031837598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: towerSelector
+      value: 
+      objectReference: {fileID: 130151580}
+    - target: {fileID: 5475237522031837598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: Towers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475237522031837598, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: Towers.Array.data[0]
+      value: 
+      objectReference: {fileID: 54073701}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
 --- !u!1001 &1419176536
