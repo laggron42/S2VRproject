@@ -271,6 +271,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8219117413635403068, guid: 9e1d55b65b90524408cc36dc7e185bc2, type: 3}
   m_PrefabInstance: {fileID: 34905326}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &54073701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5369122664445306005, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
+  m_PrefabInstance: {fileID: 5369122664724478490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &54644520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1061,6 +1066,7 @@ MonoBehaviour:
   towerPrefab: {fileID: 5369122664445306005, guid: ed703eda6a16f8c4fb6201404d4e9e48, type: 3}
   towerParentObject: {fileID: 1333678262}
   towers: []
+  UpgradeTower: {fileID: 171405077}
 --- !u!4 &130151581
 Transform:
   m_ObjectHideFlags: 0
@@ -1150,6 +1156,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8219117413635403068, guid: 9e1d55b65b90524408cc36dc7e185bc2, type: 3}
   m_PrefabInstance: {fileID: 146780484}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &171405077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2738339330253202373, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+  m_PrefabInstance: {fileID: 1398558203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8579a0fbc4129d7488d368dc5297450c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &183728333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6434,7 +6451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 4385980536670936208, guid: b3c8cbbf2f540c14082eddc008e0e03f, type: 3}
-  Round: {fileID: 0}
+  Round: {fileID: 1443238621}
   spawnPoints:
   - {fileID: 2094483876}
   - {fileID: 428153102}
@@ -7221,6 +7238,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2738339330253202373, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: Towers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738339330253202373, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+      propertyPath: Towers.Array.data[0]
+      value: 
+      objectReference: {fileID: 54073701}
     - target: {fileID: 5303419776675975630, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7637,6 +7662,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 115969624259097761, guid: 40492842f06ee8d4ea42c028a30054e0, type: 3}
   m_PrefabInstance: {fileID: 1439321339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1443238621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5303419777141447343, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
+  m_PrefabInstance: {fileID: 1398558203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1460399643
 PrefabInstance:
   m_ObjectHideFlags: 0
