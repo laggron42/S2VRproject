@@ -7,6 +7,14 @@ public class UpgradeTower : MonoBehaviour
 {
     [Tooltip("The Title of the pannel")]
     public Text TowerTitle;
+
+    [Tooltip("Heart bar of the tower")]
+    public List<RawImage> Hearts;
+
+    public Texture FullHeart;
+    public Texture EmptyHeart;
+
+
     [Tooltip("Add Torch button")]
     public Button addTorch;
     [Tooltip("Repair Torch button")]
@@ -15,14 +23,11 @@ public class UpgradeTower : MonoBehaviour
     [Tooltip("The list of all towers.")]
     public List<GameObject> Towers;
 
-    [Tooltip("The prev Button. To change the selected Tower.")]
-    public Button prev;
-    [Tooltip("The next Button. To change the selected Tower.")]
-    public Button next;
-
     [Tooltip("The index of the Tower selected4 Button. Should be less than the total number of Tower.")]
     public int index = 0;
 
+    [Tooltip("Camera of the PC view")]
+    public Camera PCview;
 
 
     public TowerSelector towerSelector;
@@ -33,9 +38,15 @@ public class UpgradeTower : MonoBehaviour
         UpdateScreen();
     }
 
+    private void Update()
+    {
+        UpdateScreen();
+    }
+
     private void UpdateScreen()
     {
         TowerTitle.text = "Tower " + (index);
+        life();
     }
 
     public void nextbutton()
@@ -47,6 +58,30 @@ public class UpgradeTower : MonoBehaviour
     {
         index = index == 0 ? Towers.Count - 1 : --index;
         UpdateScreen();
+    }
+
+
+    private void life()
+    {
+        int life = Towers[index].GetComponent<StatsTower>().health / 10;
+        if (life < 0)
+            life = 0;
+        for (int i = 0; i < 10; i++)
+            Hearts[i].texture = life > i ? FullHeart : EmptyHeart;
+    }
+
+    private void moveCam()
+    {
+    
+    }
+
+    public void repair()
+    {
+        if (Towers[index].GetComponent<StatsTower>().health > 99)
+            createError("Max life");
+        Towers[index].GetComponent<StatsTower>().health += 10;
+        if (Towers[index].GetComponent<StatsTower>().health > 100)
+            Towers[index].GetComponent<StatsTower>().health = 100;
     }
 
 
@@ -65,16 +100,19 @@ public class UpgradeTower : MonoBehaviour
         createError("No torch left");
     }
 
-    public void createError(string text)
+    private void createError(string text)
     {
         // pour afficher une erreur de placement
+        string old = addTorch.GetComponentInChildren<Text>().text;
         addTorch.GetComponentInChildren<Text>().text = text;
         StartCoroutine(waitForError());
-        addTorch.GetComponentInChildren<Text>().text = "Add a torch";
+        addTorch.GetComponentInChildren<Text>().text = old;
     }
 
     IEnumerator waitForError()
     {
         yield return new WaitForSeconds(2);
     }
+
+
 }
