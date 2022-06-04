@@ -47,6 +47,7 @@ public class UpgradeTower : MonoBehaviour
     {
         TowerTitle.text = "Tower " + (index);
         life();
+        moveCam();
     }
 
     public void nextbutton()
@@ -72,7 +73,8 @@ public class UpgradeTower : MonoBehaviour
 
     private void moveCam()
     {
-    
+        //mmmmm
+        //TODO
     }
 
     public void repair()
@@ -87,17 +89,18 @@ public class UpgradeTower : MonoBehaviour
 
     public void AddTorch()
     {
-        TorchList torchLists = (Towers[index].gameObject.GetComponentInChildren<TorchList>(false));
-
-        for (int i = 0; i < torchLists.torches.Count; i++)
+        TorchList torchLists = Towers[index].gameObject.GetComponentInChildren<TorchList>(false);
+        int i = 0;
+        while (torchLists.torches[i].gameObject.activeInHierarchy)
         {
-            if (torchLists.torches[i].gameObject.activeInHierarchy)
-                continue;
-
-            torchLists.torches[i].gameObject.SetActive(true);
-            break;
+            i++;
         }
         createError("No torch left");
+
+        if (i < torchLists.torches.Count)
+            torchLists.torches[i].gameObject.SetActive(true);
+        else
+            createError("No torch left");
     }
 
     private void createError(string text)
