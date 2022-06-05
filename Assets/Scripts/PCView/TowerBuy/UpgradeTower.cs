@@ -36,15 +36,9 @@ public class UpgradeTower : MonoBehaviour
     private void Start()
     {
         PCview = GameObject.FindObjectOfType<CameraMovement>();
-        UpdateScreen();
     }
 
-    private void Update()
-    {
-        UpdateScreen();
-    }
-
-    private void UpdateScreen()
+    public void UpdateScreen()
     {
         TowerTitle.text = "Tower " + (index);
         life();
