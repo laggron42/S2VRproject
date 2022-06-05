@@ -74,4 +74,10 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(x, y, z);
 
     }
+
+    public void LookAt(Vector3 target)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, 
+            new Vector3(target.x + 10f, transform.position.y, target.z), 1f);
+    }
 }

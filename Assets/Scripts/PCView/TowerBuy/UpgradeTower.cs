@@ -23,11 +23,11 @@ public class UpgradeTower : MonoBehaviour
     [Tooltip("The list of all towers.")]
     public List<GameObject> Towers;
 
-    [Tooltip("The index of the Tower selected4 Button. Should be less than the total number of Tower.")]
+    [Tooltip("The index of the Tower selected Button. Should be less than the total number of Tower.")]
     public int index = 0;
 
-    [Tooltip("Camera of the PC view")]
-    public Camera PCview;
+    [Tooltip("Camera Script of the PC view")]
+    public CameraMovement PCview;
 
 
     public TowerSelector towerSelector;
@@ -35,6 +35,7 @@ public class UpgradeTower : MonoBehaviour
     
     private void Start()
     {
+        PCview = GameObject.FindObjectOfType<CameraMovement>();
         UpdateScreen();
     }
 
@@ -73,8 +74,7 @@ public class UpgradeTower : MonoBehaviour
 
     private void moveCam()
     {
-        //mmmmm
-        //TODO
+        PCview.LookAt(Towers[index].transform.position);
     }
 
     public void repair()
