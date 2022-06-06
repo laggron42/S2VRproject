@@ -41,8 +41,9 @@ public class UpgradeWareHouse : MonoBehaviour
         if (WareHouses.Count == 0)
         {
             WareHouseTitle.text = "You have no WareHouses";
+            WareHouseTitle.fontSize = 160;
         } else {
-
+            WareHouseTitle.fontSize = 200;
             WareHouseTitle.text = "WareHouse " + (index);        
             life();
             moveCam();

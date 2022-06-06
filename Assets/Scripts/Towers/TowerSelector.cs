@@ -27,6 +27,9 @@ public class TowerSelector : MonoBehaviour
 
     [Tooltip("To update the list of all the Towers")]
     public UpgradeTower UpgradeTower;
+    [Tooltip("To update the list of all the WareHouse")]
+    public UpgradeWareHouse UpgradeWareHouse;
+
     private bool isSelecting = false;
 
     void OnEnable()
@@ -92,7 +95,7 @@ public class TowerSelector : MonoBehaviour
     public void AddWareHouse(Vector3 position)
     {
         GameObject WareHouse = Instantiate(WareHousePrefab, position, Quaternion.identity, towerParentObject.transform);
-        UpgradeTower.Towers.Add(WareHouse);
+        UpgradeWareHouse.WareHouses.Add(WareHouse);
     }
 
 

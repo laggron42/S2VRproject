@@ -13,20 +13,33 @@ public class OpenShop : MonoBehaviour
     public GameObject WareHousePanel;
     private Animator shopAnim;
 
-    private bool GeneralPanelActive = false;
-    private UpgradeTower upgradeManager;
+    public Text Money;
+
+    private int GeneralPanelActive = 0;
+    private UpgradeTower TowerManager;
+    private UpgradeWareHouse WareHouseManager;
 
     private void Start() {
         shopAnim = shop.GetComponent<Animator>();
-        upgradeManager = TowerPanel.GetComponent<UpgradeTower>();
+        TowerManager = TowerPanel.GetComponent<UpgradeTower>();
+        WareHouseManager = WareHousePanel.GetComponent<UpgradeWareHouse>();
     }
 
     private void Update()
     {
-        if (GeneralPanelActive)
+        if (!isOpen)
             return;
+        if (GeneralPanelActive == 0)
+            UpdateScreen();
+        if (GeneralPanelActive == 1)
+            TowerManager.UpdateScreen();
+        if (GeneralPanelActive == 2)
+            WareHouseManager.UpdateScreen();
+    }
 
-        upgradeManager.UpdateScreen();
+    private void UpdateScreen()
+    {
+        Money.text = "Money : " + Bank.instance.CurrentMoney ;
     }
 
     public void shopOpener()
@@ -52,6 +65,6 @@ public class OpenShop : MonoBehaviour
         GeneralPanel.SetActive(choice == 0);
         TowerPanel.SetActive(choice == 1);
         WareHousePanel.SetActive(choice == 2);
-        GeneralPanelActive = choice != 1;
+        GeneralPanelActive = choice;
     }
 }
