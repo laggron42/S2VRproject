@@ -29,6 +29,21 @@ public class WareHouse : MonoBehaviour
         return 0;
     }
 
+    // Removes money from the warehouse
+    // Returns the amount left to remove
+    public int RemoveMoney(int amount)
+    {
+        if (currentMoney < amount)
+        {
+            amount = amount - currentMoney;
+            currentMoney = 0;
+            return amount;
+        }
+
+        currentMoney -= amount;
+        return 0;
+    }
+
     // Destroy the warehouse
     // Removes its money from the bank
     public void Destroy()

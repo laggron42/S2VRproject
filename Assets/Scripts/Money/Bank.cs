@@ -40,11 +40,21 @@ public class Bank : MonoBehaviour
     // Will go to the next one if current is full
     public void AddMoney(int value)
     {
-        int remainder = warehouses[current].AddMoney(value);
-        while (remainder != 0 && current < warehouses.Count)
+        while (value != 0 && current < warehouses.Count)
         {
-            remainder = warehouses[++current].AddMoney(remainder);
+            value = warehouses[current++].AddMoney(value);
         }
+    }
+
+    // Removes money from the warehouse
+    // Returns false if not enough money is stored
+    public bool Buy(int price)
+    {
+        while (price != 0 && current >= 0)
+        {
+            price = warehouses[current--].RemoveMoney(price);
+        }
+        return price == 0;
     }
 
     // Removes a warehouse from the bank
