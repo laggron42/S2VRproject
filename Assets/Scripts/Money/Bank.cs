@@ -17,47 +17,47 @@ public class Bank : MonoBehaviour
     }
 #endregion
 
-    private int maxAmount = 100;
-    private int currentAmount = 50;
+    private List<WareHouse> warehouses;
+    private int current = 0; // current warehouse
 
-    public int CurrentMoney => currentAmount;
+    private int currentMoney = 0;
 
+    public int CurrentMoney => currentMoney;
 
     void Start()
     {
-        // Starting funds
-        currentAmount = 50;
+        warehouses = new List<WareHouse>();
+        current = 0;
+    }
+
+    // Adds a warehouse to the list
+    public void AddWareHouse(WareHouse w)
+    {
+        warehouses.Add(w);
     }
     
-    void Update() 
+    // Adds money to the current warehouse
+    // Will go to the next one if current is full
+    public void AddMoney(int value)
     {
-        // TODO: Load game over screen when maxAmount <= 0 (no more warehouses)
+        int remainder = warehouses[current].AddMoney(value);
+        while (remainder != 0 && current < warehouses.Count)
+        {
+            remainder = warehouses[++current].AddMoney(remainder);
+        }
     }
 
-    // Updates the bank maxCapacity
-    // Set negative value for a decrease in capacity
-    void UpdateCapacity(int increase)
+    // Removes a warehouse from the bank
+    // Called when the warehouse is deleted
+    public void RemoveWareHouse(WareHouse w)
     {
-        maxAmount += increase;
-    }
+        warehouses.Remove(w);
 
-    // Remove money from the bank if possible
-    // Returns true if the operation was successfull
-    bool Buy(int price)
-    {
-        if (currentAmount < price)
-            return false;
-
-        currentAmount -= price;
-        return true;
-    }
-
-    // Add money to the current amount
-    // Will not increase if bank reached max capacity
-    void Gain(uint amount)
-    {
-        currentAmount += (int)amount;
-        if (currentAmount > maxAmount)
-            currentAmount = maxAmount;
+        if (current > warehouses.Count)
+            current--;
+        
+        currentMoney -= w.CurrentMoney;
+        if (currentMoney < 0)
+            currentMoney = 0;
     }
 }
