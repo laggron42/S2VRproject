@@ -101,16 +101,44 @@ public class TilesManager : MonoBehaviour
             texUpdated = true;
         }
     }
+    public void SetValueWareHouse(int x, int z, int value)
+    {
+        if (x >= 0 && z >= 0 && x < width - 1 && z < height - 1)
+        {
+            grid[x, z] = value;
+            grid[x + 1, z] = value;
+            grid[x, z + 1] = value;
+            grid[x + 1, z + 1] = value;
+
+            texUpdated = true;
+        }
+    }
     public void SetValue(Vector3 worldPosition, int value)
     {
         int x, z;
         GetXZ(worldPosition, out x, out z);
         SetValue(x, z, value);
     }
+    public void SetValueWareHouse(Vector3 worldPosition, int value)
+    {
+        int x, z;
+        GetXZ(worldPosition, out x, out z);
+        SetValue(x, z, value);
+        SetValue(x + 1, z, value);
+        SetValue(x, z + 1, value);
+        SetValue(x + 1, z + 1, value);
+
+    }
 
     public bool CanPlaceTower(int x, int z)
     {
         return grid[x, z] == 0;
+    }
+
+    public bool CanPlaceWareHouse(int x, int z)
+    {
+        return (grid[x, z] == 0 && (x + 1 < width && grid[x + 1, z] == 0) 
+                && (z + 1 < height && grid[x, z + 1] == 0) && grid[x + 1, z + 1] == 0);
     }
     
     public bool CanPlaceTower(Vector3 worldPosition)

@@ -17,6 +17,8 @@ public class TowerSelector : MonoBehaviour
     public TeleportMarkerBase platformTp;
     [Tooltip("The tower that will be instanciated")]
     public GameObject towerPrefab;
+    [Tooltip("The WareHouse that will be instanciated")]
+    public GameObject WareHousePrefab;
 
     [Tooltip("The object that contains all towers which will be collected.")]
     public GameObject towerParentObject;
@@ -84,8 +86,13 @@ public class TowerSelector : MonoBehaviour
     {
         GameObject tower = Instantiate(towerPrefab, position, Quaternion.identity, towerParentObject.transform);
         UpgradeTower.Towers.Add(tower);
-        UpgradeTower.index++;
         towers.Add(tower.GetComponent<SwitchTowerTeleportType>());
+    }
+
+    public void AddWareHouse(Vector3 position)
+    {
+        GameObject WareHouse = Instantiate(WareHousePrefab, position, Quaternion.identity, towerParentObject.transform);
+        UpgradeTower.Towers.Add(WareHouse);
     }
 
 

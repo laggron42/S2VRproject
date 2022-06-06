@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuyTower : MonoBehaviour
 {
     public GameObject transparentTower;
+    public GameObject transparentWareHouse;
     public OpenShop openShop;
 
     public void spawnTower()
@@ -15,6 +16,17 @@ public class BuyTower : MonoBehaviour
         openShop.shopCloser();
         // just make a tower_transparent spawn
         GameObject t = Instantiate(transparentTower, new Vector3(1.5f, 0, -1.5f), Quaternion.identity);
+        TilesManager.instance.EnterEditMode();
+    }
+
+    public void spawnWareHouse()
+    {
+        if (!openShop.isOpen)
+            return;
+        
+        openShop.shopCloser();
+        // just make a tower_transparent spawn
+        GameObject t = Instantiate(transparentWareHouse, new Vector3(1.5f, 0, -1.5f), Quaternion.identity);
         TilesManager.instance.EnterEditMode();
     }
 }

@@ -2312,7 +2312,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2269848282225683919}
         m_TargetAssemblyTypeName: OpenShop, Assembly-CSharp
         m_MethodName: menu
-        m_Mode: 6
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3211,6 +3211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transparentTower: {fileID: 5369122664445306005, guid: b589d9299f8651f42a55c8ae22f3bda7, type: 3}
+  transparentWareHouse: {fileID: 5313582819976454718, guid: 5992044e75cba2d43a6233ec5e94f7d8, type: 3}
   openShop: {fileID: 2269848282225683919}
 --- !u!95 &8896527331544679469
 Animator:
@@ -4152,8 +4153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shop: {fileID: 7014259709093678853}
   isOpen: 0
-  TowerPanel: {fileID: 8655943647592377288}
-  UpgradePanel: {fileID: 7019010389744531757}
+  GeneralPanel: {fileID: 8655943647592377288}
+  TowerPanel: {fileID: 7019010389744531757}
+  WareHousePanel: {fileID: 6754271257692469566}
 --- !u!1 &6917207485049223160
 GameObject:
   m_ObjectHideFlags: 0
@@ -4353,11 +4355,11 @@ MonoBehaviour:
       - m_Target: {fileID: 2269848282225683919}
         m_TargetAssemblyTypeName: OpenShop, Assembly-CSharp
         m_MethodName: menu
-        m_Mode: 6
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4486,11 +4488,11 @@ MonoBehaviour:
       - m_Target: {fileID: 2269848282225683919}
         m_TargetAssemblyTypeName: OpenShop, Assembly-CSharp
         m_MethodName: menu
-        m_Mode: 6
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

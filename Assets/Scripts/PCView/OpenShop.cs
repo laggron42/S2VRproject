@@ -8,21 +8,22 @@ public class OpenShop : MonoBehaviour
     public GameObject shop;
     public bool isOpen = false;
 
+    public GameObject GeneralPanel;
     public GameObject TowerPanel;
-    public GameObject UpgradePanel;
+    public GameObject WareHousePanel;
     private Animator shopAnim;
 
-    private bool towerPanelActive = false;
+    private bool GeneralPanelActive = false;
     private UpgradeTower upgradeManager;
 
     private void Start() {
         shopAnim = shop.GetComponent<Animator>();
-        upgradeManager = UpgradePanel.GetComponent<UpgradeTower>();
+        upgradeManager = TowerPanel.GetComponent<UpgradeTower>();
     }
 
     private void Update()
     {
-        if (!isOpen || towerPanelActive)
+        if (GeneralPanelActive)
             return;
 
         upgradeManager.UpdateScreen();
@@ -46,10 +47,11 @@ public class OpenShop : MonoBehaviour
         }
     }
 
-    public void menu(bool isTower)
+    public void menu(int choice)
     {
-        TowerPanel.SetActive(isTower);
-        UpgradePanel.SetActive(!isTower);
-        towerPanelActive = isTower;
+        GeneralPanel.SetActive(choice == 0);
+        TowerPanel.SetActive(choice == 1);
+        WareHousePanel.SetActive(choice == 2);
+        GeneralPanelActive = choice != 1;
     }
 }
