@@ -32,7 +32,7 @@ public class TransparentWareHouse : MonoBehaviour
             TilesManager.instance.GetXZ(hit.point, out int x, out int z);
             if (TilesManager.instance.CanPlaceWareHouse(x, z))
                 transform.position = TilesManager.instance.GetWorldPosition(x, hit.point.y , z) 
-                    + new Vector3(1, 0, -1) * 0.5f + Vector3.up * 1.1f - new Vector3 (2, 0, -2);
+                    + new Vector3(1, 0, -1) * 1.5f + Vector3.up * 1.1f;
         }
 
         // when you click then place the WareHouse
@@ -40,7 +40,8 @@ public class TransparentWareHouse : MonoBehaviour
         {
             //faire la liste des WareHouse
             towerSelector.AddWareHouse(transform.position);
-            TilesManager.instance.SetValueWareHouse(transform.position, 1);
+            TilesManager.instance.SetValueWareHouse(
+                transform.position - new Vector3(1, 0, -1) * 1.5f, 1);
             TilesManager.instance.ExitEditMode();
             Destroy(gameObject);
         }
