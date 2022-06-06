@@ -11,6 +11,8 @@ public class CameraMovement : MonoBehaviour
     private float maxX = 40.0f;
     private float minY = 10.0f;
     private float maxY = 50.0f;
+    public OpenShop openShop;
+
 
     private TilesManager grid;
 
@@ -27,7 +29,10 @@ public class CameraMovement : MonoBehaviour
         float x = transform.position.x;
         float y = transform.position.y;
         float z = transform.position.z;
-
+        if (openShop.isOpen)
+            return;
+        
+        
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             z += speed * Time.deltaTime;
@@ -68,5 +73,11 @@ public class CameraMovement : MonoBehaviour
 
         transform.position = new Vector3(x, y, z);
 
+    }
+
+    public void LookAt(Vector3 target)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, 
+            new Vector3(target.x + 10f, transform.position.y, target.z), 0.5f);
     }
 }

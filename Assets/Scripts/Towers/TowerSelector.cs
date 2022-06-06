@@ -22,6 +22,9 @@ public class TowerSelector : MonoBehaviour
     public GameObject towerParentObject;
     [Tooltip("The list of registered towers. Should automatically be filled on start based on Tower Parent Object.")]
     public List<SwitchTowerTeleportType> towers;
+
+    [Tooltip("To update the list of all the Towers")]
+    public UpgradeTower UpgradeTower;
     private bool isSelecting = false;
 
     void OnEnable()
@@ -80,6 +83,10 @@ public class TowerSelector : MonoBehaviour
     public void AddTower(Vector3 position)
     {
         GameObject tower = Instantiate(towerPrefab, position, Quaternion.identity, towerParentObject.transform);
+        UpgradeTower.Towers.Add(tower);
+        UpgradeTower.index++;
         towers.Add(tower.GetComponent<SwitchTowerTeleportType>());
     }
+
+
 }
