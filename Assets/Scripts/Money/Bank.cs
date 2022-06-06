@@ -7,6 +7,8 @@ public class Bank : MonoBehaviour
 
 #region Singleton
 
+    // Singleton syntax
+    // Bank object can be obtained by writting `Bank bank = Bank.instance;`
     public static Bank instance;
 
     private void Awake() 
