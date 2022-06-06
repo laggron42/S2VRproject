@@ -18,6 +18,8 @@ public class Bank : MonoBehaviour
     private int maxAmount = 100;
     private int currentAmount = 50;
 
+    public int CurrentMoney => currentAmount;
+
 
     void Start()
     {
