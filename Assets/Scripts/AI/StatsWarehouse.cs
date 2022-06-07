@@ -11,18 +11,17 @@ public class StatsWarehouse : Stats
             Destroy();
         }
     }
-    
+
     protected override void Destroy()
     {
-        brokenPrefab.SetActive(true);
-        repairedPrefab.SetActive(false);
-        gameObject.tag = "Untagged";
+        base.Destroy();
+        Bank.instance.RemoveWareHouse(GetComponent<WareHouse>());
     }
 
     public override void Repair()
     {
-        brokenPrefab.SetActive(true);
-        repairedPrefab.SetActive(false);
-        gameObject.tag = "Tower";
+        base.Repair();
+        if (health == 0)
+            Bank.instance.AddWareHouse(GetComponent<WareHouse>());
     }
 }

@@ -15,15 +15,11 @@ public class StatsTower : Stats
 
     protected override void Destroy()
     {
-        brokenPrefab.SetActive(true);
-        repairedPrefab.SetActive(false);
-        gameObject.tag = "Untagged";
+        base.Destroy();
     }
 
     public override void Repair()
     {
-        brokenPrefab.SetActive(true);
-        repairedPrefab.SetActive(false);
-        gameObject.tag = "Tower";
+        base.Repair();
     }
 }

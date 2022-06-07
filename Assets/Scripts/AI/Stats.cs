@@ -12,9 +12,15 @@ public class Stats : MonoBehaviour
 
     protected virtual void Destroy()
     {
+        brokenPrefab.SetActive(true);
+        repairedPrefab.SetActive(false);
+        gameObject.tag = "Untagged";
     }
 
     public virtual void Repair()
     {
+        brokenPrefab.SetActive(false);
+        repairedPrefab.SetActive(true);
+        gameObject.tag = "Tower";
     }
 }
