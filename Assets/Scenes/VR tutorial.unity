@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledStep: 1
   messageText: {fileID: 0}
-  teleport: {fileID: 0}
+  teleport: {fileID: 265620553}
 --- !u!114 &2408221466881600656
 MonoBehaviour:
   m_ObjectHideFlags: 0
