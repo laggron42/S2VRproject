@@ -16,7 +16,11 @@ public class StatsPotato : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            Bank.instance.AddMoney(attackPower + 1);
+            Destroy(gameObject);
+        }
         if (lastHealth>health)
         {
             hurt.Play();
