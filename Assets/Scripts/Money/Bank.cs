@@ -28,6 +28,7 @@ public class Bank : MonoBehaviour
     {
         warehouses = new List<WareHouse>();
         current = 0;
+        currentMoney = 20; // Default value
     }
 
     // Adds a warehouse to the list

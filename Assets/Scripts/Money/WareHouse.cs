@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WareHouse : MonoBehaviour
 {
+    // Used to put the default money in the default warehouse
+    public int startingMoney = 20; 
+
     private int currentMoney;
     private int maxMoney = 100;
 
@@ -13,6 +16,7 @@ public class WareHouse : MonoBehaviour
     void Start() 
     {
         Bank.instance.AddWareHouse(this);
+        currentMoney = startingMoney;
     }
 
     // Adds money to the warehouse
