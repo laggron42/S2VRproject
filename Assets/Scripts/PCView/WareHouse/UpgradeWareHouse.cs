@@ -36,7 +36,8 @@ public class UpgradeWareHouse : MonoBehaviour
     public TowerSelector towerSelector;
 
 
-    private int 
+    private int repairPrice = 10;
+    private int upgradePrice = 20;
     
     private void Start()
     {
@@ -57,6 +58,8 @@ public class UpgradeWareHouse : MonoBehaviour
             LifeBar();
             moveCam();
             MoneyBar();
+            repairWareHouse.interactable = Bank.instance.CurrentMoney >= repairPrice;
+            addTorch.interactable = Bank.instance.CurrentMoney >= upgradePrice;
         }
     }
 
@@ -89,6 +92,8 @@ public class UpgradeWareHouse : MonoBehaviour
             money = 0;
         for (int i = 0; i < 10; i++)
             Money[i].texture = money > i ? FullMoney : EmptyMoney;
+
+
     }
 
     private void moveCam()

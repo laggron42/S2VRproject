@@ -32,6 +32,10 @@ public class UpgradeTower : MonoBehaviour
 
     public TowerSelector towerSelector;
 
+
+    private int addTorchPrice = 2;
+    private int repairPrice = 10;
+
     
     private void Start()
     {
@@ -43,6 +47,8 @@ public class UpgradeTower : MonoBehaviour
         TowerTitle.text = "Tower " + (index);
         life();
         moveCam();
+        addTorch.interactable = Bank.instance.CurrentMoney >= addTorchPrice;
+        repairTower.interactable = Bank.instance.CurrentMoney >= repairPrice;
     }
 
     public void nextbutton()
