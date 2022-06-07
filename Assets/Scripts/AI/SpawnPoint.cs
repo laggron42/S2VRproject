@@ -20,11 +20,17 @@ public class SpawnPoint : MonoBehaviour
     public int sword = 0;
     public int hammer = 0;
     public float waveRate = 20f;
-
+    
+    private int enemyLeft = 0;
     private int len = 0;
     private int x = 1;
     private float timeLeft = 0;
     StateManager st;
+
+    public void minusPotato()
+    {
+        enemyLeft -= 1;
+    }
 
     void Start()
     {
@@ -35,6 +41,7 @@ public class SpawnPoint : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
+        if (timeLeft > 5 && enemyLeft == 0) timeLeft = 5;
         if (timeLeft < 0)
         {
             horn.Play();
@@ -42,7 +49,7 @@ public class SpawnPoint : MonoBehaviour
             else noWeapons += 1;
             if (x % 3 == 0) sword += 1;
             if (x % 5 == 0) hammer += 1;
-
+            enemyLeft += sword + hammer + noWeapons; 
 
             st.weapon = WeaponType.None;
             Enemy.GetComponent<StatsPotato>().health = 1;

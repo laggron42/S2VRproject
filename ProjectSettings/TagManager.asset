@@ -10,6 +10,8 @@ TagManager:
   - Shop
   - torch
   - Tower
+  - Potato
+  - Green
   layers:
   - Default
   - TransparentFX

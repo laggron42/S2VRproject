@@ -17,9 +17,8 @@ public class NavToPos : MonoBehaviour
     private GameObject getPosFrom;
     private GameObject save;
     private float timeLeft = 0.05f;
-    private int len;
-    private bool isBurning = false;
-    private float burningTime = 3f;
+    private float burningTime = 2f;
+    private float timeBeforeBurning = 0.5f;
     private float GLORY;
     private float stepRate = 0.25f;
 
@@ -27,7 +26,6 @@ public class NavToPos : MonoBehaviour
     void Start()
     {
         targets = GameObject.FindGameObjectsWithTag("Tower");
-        len = targets.Length;
         agent.speed = speed;
         attRateCounter = attRate;
         GLORY = Random.Range(0f, 10f);
@@ -44,7 +42,22 @@ public class NavToPos : MonoBehaviour
         }
     }*/
 
-    void Update()
+    /*void OnCollisionEnter(Collision collision)
+    {
+        win[Random.Range(0, 2)].Play(); 
+    }*/
+
+    void OnCollisionStay(Collision collision)
+    {
+        GameObject go = collision.gameObject;
+        if (go.GetComponent<Valve.VR.InteractionSystem.FireSource>() != null && go.GetComponent<Valve.VR.InteractionSystem.FireSource>().isBurning)
+        {
+            if (timeBeforeBurning <= 0 /*|| go.CompareTag("Green")*/)
+                gameObject.GetComponent<Valve.VR.InteractionSystem.FireSource>().StartBurning();
+            else timeBeforeBurning -= Time.deltaTime;
+        }
+    }
+        void Update()
     {
         distanceSave = float.MaxValue;
         getPosFrom = null;
@@ -56,7 +69,6 @@ public class NavToPos : MonoBehaviour
         if (timeLeft<=0)
         {
             targets = GameObject.FindGameObjectsWithTag("Tower");
-            len = targets.Length;
             timeLeft = 0.05f;
         }
         foreach (var el in targets)
@@ -73,9 +85,9 @@ public class NavToPos : MonoBehaviour
         }
         getPosFrom = save;
 
-        if (burningTime<=0)
+        if (burningTime<=0f)
         {
-            burningTime = 3f;
+            burningTime = 2f;
             gameObject.GetComponent<StatsPotato>().health -= 1;
         }
 

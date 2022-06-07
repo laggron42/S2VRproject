@@ -93,7 +93,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void StartBurning(GameObject otherFireParticlePrefab = null)
+		public void StartBurning(GameObject otherFireParticlePrefab = null)
 		{
 			GameObject particlePrefab;
 			if (otherFireParticlePrefab != null)

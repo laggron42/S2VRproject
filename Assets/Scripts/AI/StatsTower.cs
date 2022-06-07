@@ -11,6 +11,7 @@ public class StatsTower : Stats
     {
         teleport = GetComponentInChildren<TeleportArea>();
     }
+    public int health;
 
     void Update()
     {
