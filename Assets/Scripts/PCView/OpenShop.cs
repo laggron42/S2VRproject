@@ -21,10 +21,16 @@ public class OpenShop : MonoBehaviour
     private UpgradeTower TowerManager;
     private UpgradeWareHouse WareHouseManager;
 
+    private int towerPrice = 15;
+    private int warehousePrice = 25;
+
+    Bank bank;
+
     private void Start() {
         shopAnim = shop.GetComponent<Animator>();
         TowerManager = TowerPanel.GetComponent<UpgradeTower>();
         WareHouseManager = WareHousePanel.GetComponent<UpgradeWareHouse>();
+        bank = Bank.instance;
     }
 
     private void Update()
@@ -41,7 +47,9 @@ public class OpenShop : MonoBehaviour
 
     private void UpdateScreen()
     {
-        Money.text = "Money : " + Bank.instance.CurrentMoney;
+        Money.text = "Money: " + bank.CurrentMoney;
+        buyTower.interactable = bank.CurrentMoney >= towerPrice;
+        buyWareHouse.interactable = bank.CurrentMoney >= warehousePrice;
     }
 
     public void shopOpener()

@@ -8,6 +8,9 @@ public class UpgradeWareHouse : MonoBehaviour
     [Tooltip("The Title of the pannel")]
     public Text WareHouseTitle;
 
+    [Tooltip("The Money amount text")]
+    public Text MoneyTitle;
+
     [Tooltip("Heart bar of the WareHouse")]
     public List<RawImage> Hearts;
     [Tooltip("Money bar of the WareHouse")]
@@ -46,21 +49,14 @@ public class UpgradeWareHouse : MonoBehaviour
 
     public void UpdateScreen()
     {
-        if (WareHouses.Count == 0)
-        {
-            WareHouseTitle.text = "You have no WareHouses";
-            WareHouseTitle.fontSize = 160;
-            addTorch.interactable = false;
-            repairWareHouse.interactable = false;
-        } else {
-            WareHouseTitle.fontSize = 200;
-            WareHouseTitle.text = "WareHouse " + (index);        
-            LifeBar();
-            moveCam();
-            MoneyBar();
-            repairWareHouse.interactable = Bank.instance.CurrentMoney >= repairPrice;
-            addTorch.interactable = Bank.instance.CurrentMoney >= upgradePrice;
-        }
+        WareHouseTitle.fontSize = 200;
+        WareHouseTitle.text = "WareHouse " + (index);        
+        LifeBar();
+        moveCam();
+        MoneyBar();
+        MoneyTitle.text = "Money: " + Bank.instance.CurrentMoney;
+        repairWareHouse.interactable = Bank.instance.CurrentMoney >= repairPrice;
+        addTorch.interactable = Bank.instance.CurrentMoney >= upgradePrice;
     }
 
     public void nextbutton()
