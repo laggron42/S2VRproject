@@ -8,9 +8,6 @@ public class UpgradeTower : MonoBehaviour
     [Tooltip("The Title of the pannel")]
     public Text TowerTitle;
 
-    [Tooltip("The Money amount text")]
-    public Text MoneyTitle;
-
     [Tooltip("Heart bar of the tower")]
     public List<RawImage> Hearts;
 
@@ -50,7 +47,6 @@ public class UpgradeTower : MonoBehaviour
         TowerTitle.text = "Tower " + (index);
         life();
         moveCam();
-        MoneyTitle.text = "Money: " + Bank.instance.CurrentMoney;
         addTorch.interactable = Bank.instance.CurrentMoney >= addTorchPrice;
         repairTower.interactable = Bank.instance.CurrentMoney >= repairPrice;
     }

@@ -8,9 +8,6 @@ public class UpgradeWareHouse : MonoBehaviour
     [Tooltip("The Title of the pannel")]
     public Text WareHouseTitle;
 
-    [Tooltip("The Money amount text")]
-    public Text MoneyTitle;
-
     [Tooltip("Heart bar of the WareHouse")]
     public List<RawImage> Hearts;
     [Tooltip("Money bar of the WareHouse")]
@@ -54,7 +51,6 @@ public class UpgradeWareHouse : MonoBehaviour
         LifeBar();
         moveCam();
         MoneyBar();
-        MoneyTitle.text = "Money: " + Bank.instance.CurrentMoney;
         repairWareHouse.interactable = Bank.instance.CurrentMoney >= repairPrice;
         addTorch.interactable = Bank.instance.CurrentMoney >= upgradePrice;
     }
