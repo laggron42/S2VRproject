@@ -1052,7 +1052,7 @@ PrefabInstance:
       objectReference: {fileID: 265620553}
     - target: {fileID: 2408221467134261423, guid: afa725f4acb151d47952b1a13688211f, type: 3}
       propertyPath: steps.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2408221467134261423, guid: afa725f4acb151d47952b1a13688211f, type: 3}
       propertyPath: steps.Array.data[0]
@@ -1060,6 +1060,10 @@ PrefabInstance:
       objectReference: {fileID: 2408221466881600656}
     - target: {fileID: 2408221467134261423, guid: afa725f4acb151d47952b1a13688211f, type: 3}
       propertyPath: steps.Array.data[1]
+      value: 
+      objectReference: {fileID: 2408221466881600657}
+    - target: {fileID: 2408221467134261423, guid: afa725f4acb151d47952b1a13688211f, type: 3}
+      propertyPath: steps.Array.data[2]
       value: 
       objectReference: {fileID: 2408221466881600655}
     m_RemovedComponents: []
@@ -1109,3 +1113,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabledStep: 1
   messageText: {fileID: 0}
+--- !u!114 &2408221466881600657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408221466881600654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5280ed15e13d43fab8d68b5ca1966bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledStep: 1
+  messageText: {fileID: 0}
+  snapLeftAction:
+    actionPath: /actions/default/in/SnapTurnLeft
+    needsReinit: 0
+  snapRightAction:
+    actionPath: /actions/default/in/SnapTurnRight
+    needsReinit: 0

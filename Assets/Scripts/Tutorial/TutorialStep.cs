@@ -38,6 +38,11 @@ public abstract class TutorialStep : MonoBehaviour
         while (!action.stateUp)
             yield return null;
     }
+    protected IEnumerator WaitForAction(ISteamVR_Action_Boolean action1, ISteamVR_Action_Boolean action2)
+    {
+        while (!action1.stateUp && !action2.stateUp)
+            yield return null;
+    }
     
     /// <summary>
     /// The action that has to be done for this step of the tutorial.
