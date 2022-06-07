@@ -5,17 +5,9 @@ using UnityEngine;
 public class Bank : MonoBehaviour
 {
 
-#region Singleton
-
     // Singleton syntax
     // Bank object can be obtained by writting `Bank bank = Bank.instance;`
     public static Bank instance;
-
-    private void Awake() 
-    {
-        Bank.instance = this;
-    }
-#endregion
 
     private List<WareHouse> warehouses;
     private int current = 0; // current warehouse
@@ -24,8 +16,10 @@ public class Bank : MonoBehaviour
 
     public int CurrentMoney => currentMoney;
 
-    void Start()
+    private void Awake() 
     {
+        Bank.instance = this;
+
         warehouses = new List<WareHouse>();
         current = 0;
         currentMoney = 20; // Default value
