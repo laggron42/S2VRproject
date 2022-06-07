@@ -1063,7 +1063,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 0.86118007, b: 0.740566, a: 1}
     m_PressedColor: {r: 1, g: 0.86118007, b: 0.740566, a: 1}
     m_SelectedColor: {r: 0.8509804, g: 0.7254902, b: 0.59607846, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.8627451, b: 0.7411765, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4841,6 +4841,8 @@ MonoBehaviour:
   shop: {fileID: 7014259709093678853}
   isOpen: 0
   GeneralPanel: {fileID: 8655943647592377288}
+  buyWareHouse: {fileID: 0}
+  buyTower: {fileID: 0}
   TowerPanel: {fileID: 7019010389744531757}
   WareHousePanel: {fileID: 6754271257692469566}
   Money: {fileID: 0}
@@ -6360,7 +6362,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 0.86118007, b: 0.740566, a: 1}
     m_PressedColor: {r: 1, g: 0.86118007, b: 0.740566, a: 1}
     m_SelectedColor: {r: 0.8509804, g: 0.7254902, b: 0.59607846, a: 1}
-    m_DisabledColor: {r: 0.8509804, g: 0.7254902, b: 0.59607846, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.8627451, b: 0.7411765, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6379,9 +6381,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8482980642765312338}
-        m_TargetAssemblyTypeName: buyTower, Assembly-CSharp
-        m_MethodName: spawnTower
+      - m_Target: {fileID: 5475237522031837598}
+        m_TargetAssemblyTypeName: UpgradeTower, Assembly-CSharp
+        m_MethodName: repair
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

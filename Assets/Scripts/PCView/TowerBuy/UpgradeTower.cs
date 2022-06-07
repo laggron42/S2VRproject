@@ -79,6 +79,7 @@ public class UpgradeTower : MonoBehaviour
 
     public void repair()
     {
+        Bank.instance.Buy(repairPrice);
         if (Towers[index].GetComponent<StatsTower>().health > 99)
             createError("Max life");
         Towers[index].GetComponent<StatsTower>().health += 10;
@@ -89,6 +90,7 @@ public class UpgradeTower : MonoBehaviour
 
     public void AddTorch()
     {
+        Bank.instance.Buy(addTorchPrice);
         TorchList torchLists = Towers[index].gameObject.GetComponentInChildren<TorchList>(false);
         int i = 0;
         while (torchLists.torches[i].gameObject.activeInHierarchy)

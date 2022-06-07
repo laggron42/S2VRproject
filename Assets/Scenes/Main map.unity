@@ -7596,18 +7596,6 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: f709d45077d276142bdcf8e21698ed4b, type: 3}
-    - target: {fileID: 4769610876498901266, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 171405077}
-    - target: {fileID: 4769610876498901266, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: repair
-      objectReference: {fileID: 0}
-    - target: {fileID: 4769610876498901266, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UpgradeTower, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4807922412598171200, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7886,11 +7874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7019010389744531757, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116677870639939015, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -236
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7203902494492158460, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_Texture
@@ -8030,7 +8014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655943647592377288, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8805384808515502107, guid: 8b082bb72acd26e48a0289b88831ca17, type: 3}
       propertyPath: m_AnchorMax.y

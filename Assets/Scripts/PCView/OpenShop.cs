@@ -9,6 +9,8 @@ public class OpenShop : MonoBehaviour
     public bool isOpen = false;
 
     public GameObject GeneralPanel;
+    public Button buyWareHouse;
+    public Button buyTower;
     public GameObject TowerPanel;
     public GameObject WareHousePanel;
     private Animator shopAnim;
@@ -39,7 +41,7 @@ public class OpenShop : MonoBehaviour
 
     private void UpdateScreen()
     {
-        Money.text = "Money : " + Bank.instance.CurrentMoney ;
+        Money.text = "Money : " + Bank.instance.CurrentMoney;
     }
 
     public void shopOpener()

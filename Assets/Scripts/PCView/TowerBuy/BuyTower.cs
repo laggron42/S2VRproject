@@ -8,11 +8,12 @@ public class BuyTower : MonoBehaviour
     public GameObject transparentWareHouse;
     public OpenShop openShop;
 
+    private int towerPrice = 10;
+
     public void spawnTower()
     {
         if (!openShop.isOpen)
             return;
-        
         openShop.shopCloser();
         // just make a tower_transparent spawn
         GameObject t = Instantiate(transparentTower, new Vector3(1.5f, 0, -1.5f), Quaternion.identity);
