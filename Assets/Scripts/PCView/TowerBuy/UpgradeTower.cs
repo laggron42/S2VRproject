@@ -84,12 +84,14 @@ public class UpgradeTower : MonoBehaviour
 
     public void repair()
     {
+        StatsTower stats = Towers[index].GetComponent<StatsTower>();
+        stats.Repair();
         Bank.instance.Buy(repairPrice);
-        if (Towers[index].GetComponent<Stats>().health > 99)
+        if (stats.health > 99)
             createError("Max life");
-        Towers[index].GetComponent<Stats>().health += 10;
-        if (Towers[index].GetComponent<Stats>().health > 100)
-            Towers[index].GetComponent<Stats>().health = 100;
+        stats.health += 10;
+        if (stats.health > 100)
+            stats.health = 100;
     }
 
 

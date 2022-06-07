@@ -100,12 +100,14 @@ public class UpgradeWareHouse : MonoBehaviour
 
     public void repair()
     {
+        StatsWarehouse stats = WareHouses[index].GetComponent<StatsWarehouse>();
+        stats.Repair();
         Bank.instance.Buy(repairPrice);
-        if (WareHouses[index].GetComponent<Stats>().health > 99)
+        if (stats.health > 99)
             createError("Max life");
-        WareHouses[index].GetComponent<Stats>().health += 10;
-        if (WareHouses[index].GetComponent<Stats>().health > 100)
-            WareHouses[index].GetComponent<Stats>().health = 100;
+        stats.health += 10;
+        if (stats.health > 100)
+            stats.health = 100;
     }
 
 
