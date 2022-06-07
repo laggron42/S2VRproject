@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 56377e28a47008245871ca7b435044c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 56377e28a47008245871ca7b435044c4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -264,6 +268,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1164744282}
     m_Modifications:
+    - target: {fileID: 2408221466669532446, guid: afa725f4acb151d47952b1a13688211f, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2408221467134261416, guid: afa725f4acb151d47952b1a13688211f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -464,8 +472,8 @@ Transform:
   m_Father: {fileID: 1655307325}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1157335310
-SphereCollider:
+--- !u!136 &1157335310
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -474,8 +482,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.03
+  m_Height: 0.9
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1157335311
 MonoBehaviour:
@@ -494,7 +503,7 @@ MonoBehaviour:
   requireGrabActionToTake: 1
   requireReleaseActionToReturn: 0
   showTriggerHint: 1
-  attachmentFlags: 239
+  attachmentFlags: 233
   takeBackItem: 1
   acceptDifferentItems: 0
   pickupEvent:
@@ -762,7 +771,7 @@ MonoBehaviour:
   requireGrabActionToTake: 1
   requireReleaseActionToReturn: 0
   showTriggerHint: 1
-  attachmentFlags: 239
+  attachmentFlags: 233
   takeBackItem: 1
   acceptDifferentItems: 0
   pickupEvent:
@@ -1111,7 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c9632bd9bb4b5d9ec9db164cdc6860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabledStep: 1
+  enabledStep: 0
   messageText: {fileID: 0}
 --- !u!114 &2408221466881600657
 MonoBehaviour:
@@ -1125,7 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5280ed15e13d43fab8d68b5ca1966bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabledStep: 1
+  enabledStep: 0
   messageText: {fileID: 0}
   snapLeftAction:
     actionPath: /actions/default/in/SnapTurnLeft

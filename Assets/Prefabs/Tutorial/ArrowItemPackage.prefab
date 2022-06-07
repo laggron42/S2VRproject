@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Arrow
   packageType: 1
-  itemPrefab: {fileID: 187848, guid: d410d7126dd411c4ea651fc94eae9202, type: 3}
+  itemPrefab: {fileID: 187848, guid: 09fd3df43f7289e43af166c4a4d66f53, type: 3}
   otherHandItemPrefab: {fileID: 0}
   previewPrefab: {fileID: 173732, guid: ec7ae6ea0eadd584a8eee2a6ecfea037, type: 3}
   fadedPreviewPrefab: {fileID: 173732, guid: ec7ae6ea0eadd584a8eee2a6ecfea037, type: 3}
