@@ -70,7 +70,7 @@ public class UpgradeTower : MonoBehaviour
 
     private void life()
     {
-        int life = Towers[index].GetComponent<StatsTower>().health / 10;
+        int life = Towers[index].GetComponent<Stats>().health / 10;
         if (life < 0)
             life = 0;
         for (int i = 0; i < 10; i++)
@@ -85,11 +85,11 @@ public class UpgradeTower : MonoBehaviour
     public void repair()
     {
         Bank.instance.Buy(repairPrice);
-        if (Towers[index].GetComponent<StatsTower>().health > 99)
+        if (Towers[index].GetComponent<Stats>().health > 99)
             createError("Max life");
-        Towers[index].GetComponent<StatsTower>().health += 10;
-        if (Towers[index].GetComponent<StatsTower>().health > 100)
-            Towers[index].GetComponent<StatsTower>().health = 100;
+        Towers[index].GetComponent<Stats>().health += 10;
+        if (Towers[index].GetComponent<Stats>().health > 100)
+            Towers[index].GetComponent<Stats>().health = 100;
     }
 
 

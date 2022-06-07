@@ -74,7 +74,7 @@ public class UpgradeWareHouse : MonoBehaviour
 
     private void LifeBar()
     {
-        int life = WareHouses[index].GetComponent<StatsTower>().health / 10;
+        int life = WareHouses[index].GetComponent<Stats>().health / 10;
         if (life < 0)
             life = 0;
         for (int i = 0; i < 10; i++)
@@ -101,11 +101,11 @@ public class UpgradeWareHouse : MonoBehaviour
     public void repair()
     {
         Bank.instance.Buy(repairPrice);
-        if (WareHouses[index].GetComponent<StatsTower>().health > 99)
+        if (WareHouses[index].GetComponent<Stats>().health > 99)
             createError("Max life");
-        WareHouses[index].GetComponent<StatsTower>().health += 10;
-        if (WareHouses[index].GetComponent<StatsTower>().health > 100)
-            WareHouses[index].GetComponent<StatsTower>().health = 100;
+        WareHouses[index].GetComponent<Stats>().health += 10;
+        if (WareHouses[index].GetComponent<Stats>().health > 100)
+            WareHouses[index].GetComponent<Stats>().health = 100;
     }
 
 
