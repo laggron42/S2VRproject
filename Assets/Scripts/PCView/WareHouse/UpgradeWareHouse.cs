@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,7 +53,11 @@ public class UpgradeWareHouse : MonoBehaviour
         moveCam();
         MoneyBar();
         repairWareHouse.interactable = Bank.instance.CurrentMoney >= repairPrice;
+        Text text = repairWareHouse.GetComponentsInChildren<Text>(true).First(t => t.name == "Cost");
+        text.text = repairPrice.ToString();
         addTorch.interactable = Bank.instance.CurrentMoney >= upgradePrice;
+        text = addTorch.GetComponentsInChildren<Text>(true).First(t => t.name == "Cost");
+        text.text = upgradePrice.ToString();
     }
 
     public void nextbutton()

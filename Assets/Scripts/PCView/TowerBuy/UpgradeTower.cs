@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,7 +49,11 @@ public class UpgradeTower : MonoBehaviour
         life();
         moveCam();
         addTorch.interactable = Bank.instance.CurrentMoney >= addTorchPrice;
+        Text text = addTorch.GetComponentsInChildren<Text>(true).First(t => t.name == "Cost");
+        text.text = addTorchPrice.ToString();
         repairTower.interactable = Bank.instance.CurrentMoney >= repairPrice;
+        text = repairTower.GetComponentsInChildren<Text>(true).First(t => t.name == "Cost");
+        text.text = repairPrice.ToString();
     }
 
     public void nextbutton()

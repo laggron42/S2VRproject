@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR.InteractionSystem;
 
 public class OpenShop : MonoBehaviour
 {
@@ -49,7 +51,11 @@ public class OpenShop : MonoBehaviour
     {
         Money.text = "Money: " + bank.CurrentMoney;
         buyTower.interactable = bank.CurrentMoney >= towerPrice;
+        Text text = buyTower.GetComponentsInChildren<Text>(true).First(t => t.name == "Cost");
+        text.text = towerPrice.ToString();
         buyWareHouse.interactable = bank.CurrentMoney >= warehousePrice;
+        text = buyWareHouse.GetComponentsInChildren<Text>(true).First(t => t.name == "Cost");
+        text.text = warehousePrice.ToString();
     }
 
     public void shopOpener()
