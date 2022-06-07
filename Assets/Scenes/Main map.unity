@@ -2226,6 +2226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 489529060}
+--- !u!23 &504560111 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 24708b031177fed49bb2da8ebc695a37, type: 3}
+  m_PrefabInstance: {fileID: 2075220451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &514961096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10954,6 +10959,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd5e2bf187057349988ed31e62dbb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sky: {fileID: 504560111}
+  dayColor: {r: 0, g: 1, b: 0.72156864, a: 0}
+  dayHorizon: {r: 0.27058825, g: 0.5686275, b: 0.6431373, a: 1}
+  daySun: {r: 1, g: 1, b: 1, a: 0}
+  noonColor: {r: 0.7529412, g: 0.28235295, b: 0.47843137, a: 0}
+  noonHorizon: {r: 0.8784314, g: 0.36078432, b: 0.21960784, a: 1}
+  noonSun: {r: 0.8980392, g: 0.5254902, b: 0.33333334, a: 1}
+  nightColor: {r: 0.003921569, g: 0.29803923, b: 0.90588236, a: 0}
+  nightHorizon: {r: 0.25882354, g: 0.1764706, b: 0.7372549, a: 1}
+  nightSun: {r: 0.6117647, g: 0.8156863, b: 0.9607843, a: 1}
 --- !u!1001 &2053804003
 PrefabInstance:
   m_ObjectHideFlags: 0
