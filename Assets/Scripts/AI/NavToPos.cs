@@ -111,7 +111,7 @@ public class NavToPos : MonoBehaviour
             attRateCounter -= Time.deltaTime;
             if (attRateCounter<=0)
             {
-                getPosFrom.GetComponent<StatsTower>().health -= gameObject.GetComponent<StatsPotato>().attackPower;
+                getPosFrom.GetComponent<Stats>().health -= gameObject.GetComponent<StatsPotato>().attackPower;
                 attRateCounter = attRate;
             }
         }

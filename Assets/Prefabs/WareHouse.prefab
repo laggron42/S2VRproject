@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4657496202021077096}
-  - component: {fileID: 8486182621228802940}
   - component: {fileID: -547939459105890088}
   - component: {fileID: -5181608005231643537}
+  - component: {fileID: 860493589320687429}
   m_Layer: 0
   m_Name: WareHouse
   m_TagString: Tower
@@ -34,19 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8486182621228802940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5313582819976454718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c20498b5b55c1194faa7c5cac3cf7a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!208 &-547939459105890088
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -76,6 +63,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingMoney: 0
+--- !u!114 &860493589320687429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313582819976454718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab0df36be4f59640900953aac9744b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  brokenPrefab: {fileID: 0}
+  repairedPrefab: {fileID: 0}
 --- !u!1001 &5138577986386090187
 PrefabInstance:
   m_ObjectHideFlags: 0

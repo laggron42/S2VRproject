@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
-public class StatsTower : Stats
+public class StatsWarehouse : Stats
 {
     void Update()
     {
@@ -12,7 +11,7 @@ public class StatsTower : Stats
             Destroy();
         }
     }
-
+    
     protected override void Destroy()
     {
         brokenPrefab.SetActive(true);
