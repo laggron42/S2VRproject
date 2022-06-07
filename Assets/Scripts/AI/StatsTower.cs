@@ -5,6 +5,13 @@ using Valve.VR.InteractionSystem;
 
 public class StatsTower : Stats
 {
+    TeleportArea teleport;
+
+    void Start()
+    {
+        teleport = GetComponentInChildren<TeleportArea>();
+    }
+
     void Update()
     {
         if (health <= 0)
@@ -16,10 +23,13 @@ public class StatsTower : Stats
     protected override void Destroy()
     {
         base.Destroy();
+        teleport.locked = true;
     }
 
     public override void Repair()
     {
         base.Repair();
+        if (health == 0)
+            teleport.locked = false;
     }
 }
