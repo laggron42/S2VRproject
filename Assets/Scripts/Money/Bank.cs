@@ -25,6 +25,15 @@ public class Bank : MonoBehaviour
         currentMoney = 20; // Default value
     }
 
+    void Update() 
+    {
+        if (warehouses.Count == 0)
+        {
+            // You lose!
+            Loader.LoadMenu();
+        }
+    }
+
     // Adds a warehouse to the list
     public void AddWareHouse(WareHouse w)
     {
