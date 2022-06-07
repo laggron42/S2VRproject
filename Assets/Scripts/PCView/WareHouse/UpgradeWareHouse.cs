@@ -10,9 +10,13 @@ public class UpgradeWareHouse : MonoBehaviour
 
     [Tooltip("Heart bar of the WareHouse")]
     public List<RawImage> Hearts;
+    [Tooltip("Money bar of the WareHouse")]
+    public List<RawImage> Money;
 
     public Texture FullHeart;
     public Texture EmptyHeart;
+    public Texture FullMoney;
+    public Texture EmptyMoney;
 
 
     [Tooltip("Add Torch button")]
@@ -30,6 +34,9 @@ public class UpgradeWareHouse : MonoBehaviour
     public CameraMovement PCview;
 
     public TowerSelector towerSelector;
+
+
+    private int 
     
     private void Start()
     {
@@ -42,11 +49,14 @@ public class UpgradeWareHouse : MonoBehaviour
         {
             WareHouseTitle.text = "You have no WareHouses";
             WareHouseTitle.fontSize = 160;
+            addTorch.interactable = false;
+            repairWareHouse.interactable = false;
         } else {
             WareHouseTitle.fontSize = 200;
             WareHouseTitle.text = "WareHouse " + (index);        
-            life();
+            LifeBar();
             moveCam();
+            MoneyBar();
         }
     }
 
@@ -62,13 +72,23 @@ public class UpgradeWareHouse : MonoBehaviour
     }
 
 
-    private void life()
+    private void LifeBar()
     {
         int life = WareHouses[index].GetComponent<StatsTower>().health / 10;
         if (life < 0)
             life = 0;
         for (int i = 0; i < 10; i++)
             Hearts[i].texture = life > i ? FullHeart : EmptyHeart;
+    }
+
+    private void MoneyBar()
+    {
+        WareHouse warehouse = WareHouses[index].GetComponent<WareHouse>();
+        int money = (int) (((float) warehouse.CurrentMoney / warehouse.MaxCapacity) * 10);
+        if (money < 0)
+            money = 0;
+        for (int i = 0; i < 10; i++)
+            Money[i].texture = money > i ? FullMoney : EmptyMoney;
     }
 
     private void moveCam()
