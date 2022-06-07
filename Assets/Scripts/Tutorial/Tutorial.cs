@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class Tutorial : MonoBehaviour
 {
-    public TextMesh textCanvas;
+    public TMP_Text messageText;
     public Teleport teleport;
     public ISteamVR_Action_Boolean menuAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("OpenMenu");
     public ISteamVR_Action_Boolean tpAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
@@ -28,12 +28,12 @@ public class Tutorial : MonoBehaviour
 
     void StartTutorial()
     {
-        StartCoroutine(PressButton());
+        StartCoroutine(RunTutorial());
     }
 
     void UpdateText(string content)
     {
-        textCanvas.text = content;
+        messageText.text = content;
     }
 
     IEnumerator WaitForAction(ISteamVR_Action_Boolean action)
@@ -45,7 +45,7 @@ public class Tutorial : MonoBehaviour
     IEnumerator RunTutorial()
     {
         yield return PressButton();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         yield return Teleport();
     }
 
@@ -61,6 +61,12 @@ public class Tutorial : MonoBehaviour
         foreach (Hand hand in player.hands)
         {
             ControllerButtonHints.HideAllTextHints(hand);
+            if (hand != null)
+            {
+                ControllerButtonHints hints = ControllerButtonHints.GetControllerButtonHints( hand );
+                if (hints != null && hints.autoSetWithControllerRangeOfMotion)
+                    hand.ResetTemporarySkeletonRangeOfMotion();
+            }
         }
         UpdateText("Good job!");
     }

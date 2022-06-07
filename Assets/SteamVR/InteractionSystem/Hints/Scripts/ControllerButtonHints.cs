@@ -753,7 +753,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 
 		//-------------------------------------------------
-		private static ControllerButtonHints GetControllerButtonHints( Hand hand )
+		public static ControllerButtonHints GetControllerButtonHints( Hand hand )
 		{
 			if ( hand != null )
 			{
