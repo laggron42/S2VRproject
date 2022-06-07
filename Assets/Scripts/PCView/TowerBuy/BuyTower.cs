@@ -8,10 +8,15 @@ public class BuyTower : MonoBehaviour
     public GameObject transparentWareHouse;
     public OpenShop openShop;
 
+    private int towerPrice = 15;
+    private int warehousePrice = 25;
+
     public void spawnTower()
     {
         if (!openShop.isOpen)
             return;
+
+        Bank.instance.Buy(towerPrice);
 
         openShop.shopCloser();
         // just make a tower_transparent spawn
@@ -23,6 +28,8 @@ public class BuyTower : MonoBehaviour
     {
         if (!openShop.isOpen)
             return;
+            
+        Bank.instance.Buy(warehousePrice);
 
         openShop.shopCloser();
         // just make a tower_transparent spawn
