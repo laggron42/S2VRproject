@@ -8,7 +8,7 @@ using UnityEngine;
 */
 public class SkyboxLight : MonoBehaviour
 {
-    void Start()
+    void Update()
     {
         Shader.SetGlobalVector("_SunDirection", transform.forward);
     }
