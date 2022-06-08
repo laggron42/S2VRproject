@@ -12,6 +12,7 @@ TagManager:
   - Tower
   - Potato
   - Green
+  - ContactExplosion
   layers:
   - Default
   - TransparentFX

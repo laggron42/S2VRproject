@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4594072564362068271}
   m_Layer: 0
   m_Name: Map
-  m_TagString: Untagged
+  m_TagString: ContactExplosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -93,6 +93,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: 8e46f2a344f1ce04a87edda5a8f007e5, type: 3}
