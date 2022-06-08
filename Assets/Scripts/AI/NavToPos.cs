@@ -94,7 +94,6 @@ public class NavToPos : MonoBehaviour
         if (distanceSave > attRange || getPosFrom==null)
         {
             gameObject.GetComponent<StateManager>().StopAttack();
-            attRateCounter = attRate;
             if (getPosFrom != null)
             {
                 stepRate -= Time.deltaTime;
