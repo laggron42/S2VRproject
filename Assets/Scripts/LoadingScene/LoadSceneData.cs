@@ -1,4 +1,4 @@
 public class LoadSceneData
 {
-    public static string nextSceneToLoad;
+    public static string nextSceneToLoad = "menu";
 }
